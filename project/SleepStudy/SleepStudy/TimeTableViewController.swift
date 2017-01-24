@@ -37,9 +37,20 @@ class TimeTableViewController: UITableViewController {
                                 Record(path: "/rec/file8.mov",date: "3월 6일"),
                                 Record(path: "/rec/file9.mov",date: "3월 9일")]
         
-        subjects[0].records[0].memos += [Memo(content: "메모 내용",type: "메모 종류", time:1000)]
+        subjects[0].records[0].memos += [Memo(content: "서프라이즈 퀴즈 존재, 예습 복습 철저히 할 것",type: "퀴즈", time:880)]
+        subjects[0].records[0].memos += [Memo(content: "기말고사는 범위 누적",type: "시험", time:900)]
+        subjects[0].records[0].memos += [Memo(content: "다음 시간 교재 가져오기",type: "수업", time:908)]
         
-        subjects[0].records[0].captures += [Capture(path: "경로", time:1000)]
+        subjects[0].records[1].memos += [Memo(content: "ch02까지 읽어오기",type: "수업", time:912)]
+        subjects[0].records[1].memos += [Memo(content: "3/31알까지 team 멤버 정하기",type: "팀플", time:913)]
+        
+        subjects[0].records[2].memos += [Memo(content: "3/15일 수업 휴강",type: "수업", time:845)]
+
+
+        subjects[0].records[0].captures += [Capture(path: "/recent/capture1.jpg", time:909)]
+        
+        subjects[0].records[2].captures += [Capture(path: "/recent/capture2.jpg", time:900)]
+
     }
 
     override func didReceiveMemoryWarning() {
