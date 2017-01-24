@@ -235,7 +235,7 @@
         <!--Record List-->
         <scene sceneID="Nrw-b0-TUO">
             <objects>
-                <tableViewController title="Record List" id="lH9-yg-5jw" sceneMemberID="viewController">
+                <tableViewController title="Record List" id="lH9-yg-5jw" customClass="RecordTableViewController" customModule="SleepStudy" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="73" sectionHeaderHeight="28" sectionFooterHeight="28" id="jx7-cn-gka">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="450"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
