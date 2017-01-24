@@ -65,6 +65,17 @@ class TimeTableViewController: UITableViewController {
         subjects[1].records[2].captures += [Capture(path: "/cap/pic3.png", time:154)]
 
         //==========================================================================
+        
+        
+        subjects[2].records[0].memos += [Memo(content: "교사의 연봉은 5000만원이다.",type: "일반 메모", time:321),
+                                         Memo(content: "너는",type: "일반 메모", time:426),
+                                         Memo(content: "누구니",type: "일반 메모", time:610)]
+        subjects[2].records[1].memos += [Memo(content: "사명감을",type: "팀플", time:3731)]
+        subjects[2].records[2].memos += [Memo(content: "열공을",type: "시험", time:2554)]
+        
+        subjects[2].records[0].captures += [Capture(path: "/cap/pic1.png", time:121)]
+        subjects[2].records[1].captures += [Capture(path: "/cap/pic2.png", time:245)]
+        subjects[2].records[2].captures += [Capture(path: "/cap/pic3.png", time:1554)]
 
 
     }
