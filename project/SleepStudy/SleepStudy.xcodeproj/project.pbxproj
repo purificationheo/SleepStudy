@@ -13,6 +13,8 @@
 		E57D95281E2F5BD6003B40AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E57D95271E2F5BD6003B40AC /* Assets.xcassets */; };
 		E57D952B1E2F5BD6003B40AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E57D95291E2F5BD6003B40AC /* LaunchScreen.storyboard */; };
 		E57D95331E2F6076003B40AC /* UIViewController+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57D95321E2F6076003B40AC /* UIViewController+Navigation.swift */; };
+		E58E68641E37284B0062AC18 /* TimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58E68631E37284B0062AC18 /* TimeTableViewController.swift */; };
+		E58E68661E37325E0062AC18 /* RecordTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58E68651E37325E0062AC18 /* RecordTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		E57D952A1E2F5BD6003B40AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E57D952C1E2F5BD6003B40AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E57D95321E2F6076003B40AC /* UIViewController+Navigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Navigation.swift"; sourceTree = "<group>"; };
+		E58E68631E37284B0062AC18 /* TimeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeTableViewController.swift; sourceTree = "<group>"; };
+		E58E68651E37325E0062AC18 /* RecordTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 				E57D95271E2F5BD6003B40AC /* Assets.xcassets */,
 				E57D95291E2F5BD6003B40AC /* LaunchScreen.storyboard */,
 				E57D952C1E2F5BD6003B40AC /* Info.plist */,
+				E58E68631E37284B0062AC18 /* TimeTableViewController.swift */,
+				E58E68651E37325E0062AC18 /* RecordTableViewController.swift */,
 			);
 			path = SleepStudy;
 			sourceTree = "<group>";
@@ -141,7 +147,9 @@
 			files = (
 				E57D95331E2F6076003B40AC /* UIViewController+Navigation.swift in Sources */,
 				E57D95231E2F5BD6003B40AC /* ViewController.swift in Sources */,
+				E58E68641E37284B0062AC18 /* TimeTableViewController.swift in Sources */,
 				E57D95211E2F5BD6003B40AC /* AppDelegate.swift in Sources */,
+				E58E68661E37325E0062AC18 /* RecordTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,6 +309,7 @@
 				E57D95311E2F5BD6003B40AC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
