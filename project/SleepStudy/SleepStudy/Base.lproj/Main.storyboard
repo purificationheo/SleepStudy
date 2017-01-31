@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="duL-qs-Uy5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="duL-qs-Uy5">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -99,7 +99,7 @@
         <!--Record-->
         <scene sceneID="1zN-or-DEs">
             <objects>
-                <viewController title="Record" id="Hl6-7M-QAd" sceneMemberID="viewController">
+                <viewController title="Record" id="Hl6-7M-QAd" customClass="ViewController" customModule="SleepStudy" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8v3-xM-pWS"/>
                         <viewControllerLayoutGuide type="bottom" id="Fsy-ol-AaJ"/>
@@ -168,13 +168,20 @@
                                     <action selector="modalDismiss:" destination="Hl6-7M-QAd" eventType="touchUpInside" id="0w4-HS-jth"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="czJ-LV-kHx">
+                                <rect key="frame" x="253" y="347" width="39" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="TakePhoto:" destination="Hl6-7M-QAd" eventType="touchUpInside" id="4CO-au-mhT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.80179794520000003" colorSpace="calibratedRGB"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T7v-Jr-ZZf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2844" y="-592"/>
+            <point key="canvasLocation" x="2844" y="-592.35382308845578"/>
         </scene>
         <!--Preference-->
         <scene sceneID="B0e-aI-tF2">
@@ -193,6 +200,43 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="auc-eP-uYx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3518" y="-165"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="zFR-xv-lZf">
+            <objects>
+                <viewController id="5ic-aG-ytx" customClass="ViewController" customModule="SleepStudy" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TRG-1a-2MO"/>
+                        <viewControllerLayoutGuide type="bottom" id="r4Q-0s-faZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FSd-h5-62B">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vwe-i8-Rhr">
+                                <rect key="frame" x="0.0" y="76" width="375" height="592"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KiS-jD-cd5">
+                                <rect key="frame" x="11" y="38" width="43" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="library"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aQc-w9-7z9">
+                                <rect key="frame" x="327" y="38" width="32" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="save"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="imgaeView" destination="vwe-i8-Rhr" id="P6r-Xv-L4K"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tl7-Ii-tgW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2844" y="-1242.7286356821589"/>
         </scene>
         <!--Memo in Record-->
         <scene sceneID="Gc4-8z-nqj">
@@ -431,7 +475,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Microphone-outlined-circular-button" translatesAutoresizingMaskIntoConstraints="NO" id="VkC-Tn-0Jh">
-                                <rect key="frame" x="110" y="90" width="49" height="50"/>
+                                <rect key="frame" x="65" y="90" width="49" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Ps-x-button" translatesAutoresizingMaskIntoConstraints="NO" id="s15-LJ-opD">
@@ -439,7 +483,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="li6-hM-U7Q">
-                                <rect key="frame" x="110" y="85" width="54" height="55"/>
+                                <rect key="frame" x="62" y="85" width="54" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="modalDismiss:" destination="cAh-cw-cL3" eventType="touchUpInside" id="99W-zd-o5P"/>
