@@ -77,9 +77,62 @@ class TimeTableViewController: UITableViewController {
         subjects[2].records[1].captures += [Capture(path: "/cap/pic2.png", time:245)]
         subjects[2].records[2].captures += [Capture(path: "/cap/pic3.png", time:1554)]
 
-
-    }
-
+        
+        
+        
+        @interface ViewController : UIViewController
+        @interface ViewController : UIViewController  <UITableViewDelegate, UITableViewDataSource>
+        
+        
+        
+            - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+        {
+            return 0;
+            }
+            
+            - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+        {
+            return nil;
+        }
+        
+        
+        @implementation ViewController
+        {
+            NSArray *array;
+        }
+        
+            - (void)viewDidLoad {
+                [super viewDidLoad];
+                // Do any additional setup after loading the view, typically from a nib.
+                // Initialize table data
+                array = [NSArray arrayWithObjects:@"교육학", @"경영학", @"게임", @"달리기", @"수학", nil];
+        }
+        
+        
+        (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger )section
+        {
+            return [array count];
+        }
+        
+        (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+        {
+            static NSString *identifier = @"Cell";
+            
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+            
+            if (cell == nil) {
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+            }
+            
+            cell.textLabel.text = [array objectAtIndex:indexPath.row];
+            return cell;
+        }
+        
+        
+        
+        
+        
+        
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
