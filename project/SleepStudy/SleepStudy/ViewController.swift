@@ -18,15 +18,26 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UIPopover
         picker?.delegate=self
     }
     
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func TakePhoto(_ sender: Any) {
-        openCamera ()
+    @IBAction func OpenGallery(_ sender: Any) {
+        openGallery()
     }
     
+    @IBAction func TakePhoto(_ sender: Any) {
+    openCamera ()
+    }
+    func openGallery()
+    {
+        picker!.allowsEditing = false
+        picker!.sourceType = UIImagePickerControllerSourceType.photoLibrary
+        present(picker!, animated: true, completion: nil)
+        
+    }
     func openCamera(){
         
     if(UIImagePickerController .isSourceTypeAvailable(UIImagePickerControllerSourceType.camera)){
@@ -42,7 +53,9 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UIPopover
     }
     
     }
-}
+    
+    }
+
 
 
 
