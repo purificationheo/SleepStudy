@@ -157,7 +157,7 @@
                                 <rect key="frame" x="79" y="336" width="61" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <segue destination="pg1-Bg-4JU" kind="presentation" id="Ilx-OV-cer"/>
+                                    <segue destination="pg1-Bg-4JU" kind="show" id="qRa-e7-tkQ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q5y-xb-Th8">
@@ -202,10 +202,10 @@
             </objects>
             <point key="canvasLocation" x="3518" y="-165"/>
         </scene>
-        <!--View Controller-->
+        <!--Camera View Controller-->
         <scene sceneID="zFR-xv-lZf">
             <objects>
-                <viewController id="5ic-aG-ytx" customClass="ViewController" customModule="SleepStudy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="5ic-aG-ytx" customClass="CameraViewController" customModule="SleepStudy" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TRG-1a-2MO"/>
                         <viewControllerLayoutGuide type="bottom" id="r4Q-0s-faZ"/>
@@ -223,7 +223,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="album"/>
                                 <connections>
-                                    <action selector="OpenGallery:" destination="5ic-aG-ytx" eventType="touchUpInside" id="x9q-Ly-9An"/>
+                                    <action selector="openAlbum:" destination="5ic-aG-ytx" eventType="touchUpInside" id="Xku-Uk-TPw"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aQc-w9-7z9">
@@ -232,18 +232,18 @@
                                 <state key="normal" title="save"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yts-1Z-NSI">
-                                <rect key="frame" x="158" y="606" width="74" height="30"/>
+                                <rect key="frame" x="141" y="604" width="74" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="take photo"/>
                                 <connections>
-                                    <action selector="TakePhoto:" destination="5ic-aG-ytx" eventType="touchUpInside" id="yHW-MI-ozD"/>
+                                    <action selector="TakePhoto:" destination="5ic-aG-ytx" eventType="touchUpInside" id="4tX-1R-NXV"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="imgaeView" destination="vwe-i8-Rhr" id="P6r-Xv-L4K"/>
+                        <outlet property="imageView" destination="vwe-i8-Rhr" id="M2s-kL-JI1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tl7-Ii-tgW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -253,7 +253,7 @@
         <!--Memo in Record-->
         <scene sceneID="Gc4-8z-nqj">
             <objects>
-                <viewController title="Memo in Record" id="pg1-Bg-4JU" sceneMemberID="viewController">
+                <viewController title="Memo in Record" id="pg1-Bg-4JU" customClass="MemoViewController" customModule="SleepStudy" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hyt-lO-C5m"/>
                         <viewControllerLayoutGuide type="bottom" id="oJW-oz-zKk"/>
@@ -269,15 +269,31 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="circle-edit-pen-pencil-outline-stroke-128" translatesAutoresizingMaskIntoConstraints="NO" id="2ID-ef-v0T">
-                                <rect key="frame" x="158" y="329" width="59" height="60"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="circle-edit-pen-pencil-outline-stroke-128" translatesAutoresizingMaskIntoConstraints="NO" id="Rpj-Fa-np5">
+                                <rect key="frame" x="158" y="366" width="59" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZsL-6E-vO3">
-                                <rect key="frame" x="158" y="329" width="59" height="60"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V6G-sG-MC2">
+                                <rect key="frame" x="161" y="374" width="53" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <action selector="modalDismiss:" destination="pg1-Bg-4JU" eventType="touchUpInside" id="BBe-dY-fX7"/>
+                                    <action selector="modalDismiss:" destination="pg1-Bg-4JU" eventType="touchUpInside" id="nAx-wO-EXU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4yC-5L-Wez">
+                                <rect key="frame" x="117" y="452" width="140" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Save memo to file"/>
+                                <connections>
+                                    <action selector="SaveMemo:" destination="pg1-Bg-4JU" eventType="touchUpInside" id="Ocf-J3-Tec"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tN8-yj-7Hf">
+                                <rect key="frame" x="117" y="503" width="141" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Load memo from file"/>
+                                <connections>
+                                    <action selector="Load:" destination="pg1-Bg-4JU" eventType="touchUpInside" id="UkN-4G-L3S"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -286,7 +302,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b51-jc-vB4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3654" y="-889"/>
+            <point key="canvasLocation" x="3653.5999999999999" y="-889.20539730134942"/>
         </scene>
         <!--Record List-->
         <scene sceneID="Nrw-b0-TUO">
@@ -420,7 +436,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="YRA-DH-XPe" detailTextLabel="qta-km-589" style="IBUITableViewCellStyleValue1" id="JbJ-pr-Qla">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="timeCell" textLabel="YRA-DH-XPe" detailTextLabel="qta-km-589" style="IBUITableViewCellStyleValue1" id="JbJ-pr-Qla">
                                 <rect key="frame" x="0.0" y="28" width="375" height="111"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JbJ-pr-Qla" id="hz8-UR-A9R">
