@@ -42,7 +42,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate,UI
 
     }
    
-        func openGallery()
+    func openGallery()
     {
         picker!.allowsEditing = false
         picker!.sourceType = UIImagePickerControllerSourceType.photoLibrary
