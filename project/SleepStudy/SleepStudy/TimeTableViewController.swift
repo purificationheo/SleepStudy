@@ -8,6 +8,8 @@
 
 import UIKit
 
+var curClass:Subject?
+
 class TimeTableViewController: UITableViewController {
 
     
@@ -15,8 +17,9 @@ class TimeTableViewController: UITableViewController {
                               Subject(name: "네트워크",prof: "민성기",place: "정보관 202호",time:[(1,540,615),(3,540,615)]),
                               Subject(name: "교직실무",prof: "김재덕",place: "교욱관 203호",time:[(0,600,730),(4,600,730)])]
     
-    
     override func viewDidLoad() {
+        
+        curClass = subjects[0]
         super.viewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations
@@ -28,17 +31,17 @@ class TimeTableViewController: UITableViewController {
         //여기에 추가
         
         
-        subjects[0].records += [Record(path: "/rec/file1.mov",date: "3월 2일"),
-                                Record(path: "/rec/file2.mov",date: "3월 4일"),
-                                Record(path: "/rec/file3.mov",date: "3월 9일")]
+        subjects[0].records += [Record(path: "/rec/file1.mov",date: "3월 2일", length: "01:23:45"),
+                                Record(path: "/rec/file2.mov",date: "3월 4일", length: "01:23:45"),
+                                Record(path: "/rec/file3.mov",date: "3월 9일", length: "01:23:45")]
         
-        subjects[1].records += [Record(path: "/rec/file4.mov",date: "3월 3일"),
-                                Record(path: "/rec/file5.mov",date: "3월 5일"),
-                                Record(path: "/rec/file6.mov",date: "3월 10일")]
+        subjects[1].records += [Record(path: "/rec/file4.mov",date: "3월 3일", length: "01:23:45"),
+                                Record(path: "/rec/file5.mov",date: "3월 5일", length: "01:23:45"),
+                                Record(path: "/rec/file6.mov",date: "3월 10일", length: "01:23:45")]
         
-        subjects[2].records += [Record(path: "/rec/file7.mov",date: "3월 2일"),
-                                Record(path: "/rec/file8.mov",date: "3월 6일"),
-                                Record(path: "/rec/file9.mov",date: "3월 9일")]
+        subjects[2].records += [Record(path: "/rec/file7.mov",date: "3월 2일", length: "01:23:45"),
+                                Record(path: "/rec/file8.mov",date: "3월 6일", length: "01:23:45"),
+                                Record(path: "/rec/file9.mov",date: "3월 9일", length: "01:23:45")]
 
         //==========================================================================
         subjects[0].records[0].memos += [Memo(content: "서프라이즈 퀴즈 존재, 예습 복습 철저히 할 것",type: "퀴즈", time:880)]
@@ -96,13 +99,25 @@ class TimeTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        
+        
+        //오늘이 무슨 요일인지?
+        
+        
+        //월 : 0 화 : 1 수 : 2 목 : 3 금 : 4
+        //subjects에 들어있는 항목 검사 -> 오늘 듣는 수업인지? 조건문
+        
+        
+        //몇 개의 row를 사용할건지
+        //월요일 -> 2를 return
         return subjects.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "timeCell", for: indexPath)
         // Configure the cell...
-
+        
+        //위에서 선택한 과목을 각각 출력하는 부분
         let num = indexPath.row
         cell.textLabel?.text = subjects[num].name
         cell.detailTextLabel?.text = subjects[num].place

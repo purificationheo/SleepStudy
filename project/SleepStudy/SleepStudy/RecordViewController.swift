@@ -45,7 +45,13 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate  {
         view.addSubview(recordButton)
     }
     func startRecording() {
-        let audioFilename = getDocumentsDirectory().appendingPathComponent("recording.m4a")
+        let now = NSDate()
+        let cal = NSCalendar(calendarIdentifier:NSCalendar.Identifier(rawValue: NSGregorianCalendar))!
+        let comps = cal.components([.year, .month, .day], from:now as Date)
+
+        let filename = (curClass?.name)! + comps.description + ".m4a"
+        print(filename)
+        let audioFilename = getDocumentsDirectory().appendingPathComponent("record/" + filename)
         
         let settings = [
             AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
@@ -87,6 +93,18 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate  {
     }
     func recordTapped() {
         if audioRecorder == nil {
+            let filemgrCreate = FileManager.default
+            let dirPathsCreate = NSSearchPathForDirectoriesInDomains(.documentationDirectory, .userDomainMask, true)
+            let docsDirCreate = dirPathsCreate[0] as String
+            let newDirCreate = docsDirCreate.appending("/record")
+            print("[5] 디렉토리 생성전 DirectoryPath : \(docsDirCreate)")
+            print("[5] New directory path : \(newDirCreate)")
+            do {
+                try filemgrCreate.createDirectory(atPath: newDirCreate, withIntermediateDirectories: true, attributes:nil)
+            } catch {
+                print("[5] Failed to create dir!!")
+                print(error)
+            }
             startRecording()
         } else {
             finishRecording(success: true)
@@ -94,7 +112,7 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate  {
             do{
                 let fpath = String(describing: getDocumentsDirectory())
                 let index = fpath.index(fpath.startIndex, offsetBy: 7)
-                let filelist = try filemgrList.contentsOfDirectory(atPath: fpath.substring(from: index))
+                let filelist = try filemgrList.contentsOfDirectory(atPath: fpath.substring(from: index).appending("record"))
                 for filename in filelist {
                     print("[4] \(filename)")
                 }
