@@ -724,8 +724,7 @@
                     <navigationItem key="navigationItem" title="Notes" id="TFM-gL-0LW">
                         <barButtonItem key="leftBarButtonItem" title="back" id="eiJ-sO-pxK">
                             <connections>
-                                <action selector="composeNoteButtonPressed:" destination="LCN-ZA-wab" id="zbX-nk-zfY"/>
-                                <segue destination="pg1-Bg-4JU" kind="show" id="clg-x0-I9y"/>
+                                <action selector="modalDismiss:" destination="LCN-ZA-wab" id="LKL-gT-CeY"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="compose" id="n3M-ao-4ro">
@@ -855,7 +854,4 @@
         <image name="htm_2013060413528b0103790" width="275" height="164"/>
         <image name="iphone6-mic-locations" width="522" height="213"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="clg-x0-I9y"/>
-    </inferredMetricsTieBreakers>
 </document>
