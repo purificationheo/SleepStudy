@@ -8,14 +8,11 @@
 
 import UIKit
 
-class ViewController: UIViewController,UIImagePickerControllerDelegate,UIPopoverControllerDelegate,UINavigationControllerDelegate {
+class ViewController: UIViewController {
 
-    var picker:UIImagePickerController?=UIImagePickerController()
-    
-    @IBOutlet weak var imgaeView: UIImageView!
+       
     override func viewDidLoad() {
         super.viewDidLoad()
-        picker?.delegate=self
     }
     
     
@@ -24,40 +21,10 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UIPopover
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func OpenGallery(_ sender: Any) {
-        openGallery()
-    }
-    
-    @IBAction func TakePhoto(_ sender: Any) {
-    openCamera ()
-    }
-    func openGallery()
-    {
-        picker!.allowsEditing = false
-        picker!.sourceType = UIImagePickerControllerSourceType.photoLibrary
-        present(picker!, animated: true, completion: nil)
-        
-    }
-    func openCamera(){
-        
-    if(UIImagePickerController .isSourceTypeAvailable(UIImagePickerControllerSourceType.camera)){
-    picker!.allowsEditing = false
-    picker!.sourceType = UIImagePickerControllerSourceType.camera
-    picker!.cameraCaptureMode = .photo
-    present(picker!, animated: true, completion: nil)
-    }else{
-    let alert = UIAlertController(title: "Camera Not Found", message: "This device has no Camera", preferredStyle: .alert)
-    let ok = UIAlertAction(title: "OK", style:.default, handler: nil)
-    alert.addAction(ok)
-    present(alert, animated: true, completion: nil)
-    }
     
     }
     
-    }
-
-
-
+    
 
 class Subject{
     
@@ -77,6 +44,7 @@ class Subject{
         self.time = time
     }
 }
+
 
 class Memo{
     var content:String
