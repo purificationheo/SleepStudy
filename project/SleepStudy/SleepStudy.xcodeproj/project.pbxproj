@@ -22,7 +22,6 @@
 		ED62FD951E445A51000A92D2 /* NoteDetailsViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED62FD8F1E445A51000A92D2 /* NoteDetailsViewControllerDelegate.swift */; };
 		ED62FD961E445A51000A92D2 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED62FD901E445A51000A92D2 /* NotesViewController.swift */; };
 		EDBD7C261E42FE2B0013EEC6 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBD7C251E42FE2B0013EEC6 /* CameraViewController.swift */; };
-		EDCD79701E41D8A70057E77F /* MemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCD796F1E41D8A70057E77F /* MemoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,7 +42,6 @@
 		ED62FD8F1E445A51000A92D2 /* NoteDetailsViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteDetailsViewControllerDelegate.swift; sourceTree = "<group>"; };
 		ED62FD901E445A51000A92D2 /* NotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 		EDBD7C251E42FE2B0013EEC6 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CameraViewController.swift; path = ../CameraViewController.swift; sourceTree = "<group>"; };
-		EDCD796F1E41D8A70057E77F /* MemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +89,6 @@
 				E57D952C1E2F5BD6003B40AC /* Info.plist */,
 				E58E68631E37284B0062AC18 /* TimeTableViewController.swift */,
 				E58E68651E37325E0062AC18 /* RecordTableViewController.swift */,
-				EDCD796F1E41D8A70057E77F /* MemoViewController.swift */,
 				EDBD7C251E42FE2B0013EEC6 /* CameraViewController.swift */,
 			);
 			path = SleepStudy;
@@ -172,7 +169,6 @@
 				ED62FD951E445A51000A92D2 /* NoteDetailsViewControllerDelegate.swift in Sources */,
 				E57D95331E2F6076003B40AC /* UIViewController+Navigation.swift in Sources */,
 				E57D95231E2F5BD6003B40AC /* ViewController.swift in Sources */,
-				EDCD79701E41D8A70057E77F /* MemoViewController.swift in Sources */,
 				ED62FD911E445A51000A92D2 /* BackButtonDelegate.swift in Sources */,
 				E58E68641E37284B0062AC18 /* TimeTableViewController.swift in Sources */,
 				ED62FD931E445A51000A92D2 /* Note.swift in Sources */,

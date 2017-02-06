@@ -44,12 +44,12 @@ class NotesViewController: UITableViewController, NoteDetailsViewControllerDeleg
     
     
     
-    //MARK: Tableview overrides
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+       //MARK: Tableview overrides
+       override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "NoteCell")!
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM-dd-yyyy"
+        dateFormatter.dateFormat = "yyyy-MM-dd"
         
         // Filtering Notes 
         if searchController.isActive && searchController.searchBar.text != "" {
@@ -140,8 +140,7 @@ class NotesViewController: UITableViewController, NoteDetailsViewControllerDeleg
         
     }
     
-    
-    
+  
     
     //MARK : Delegate Functions
     func noteDetailsViewController(_ controller: NoteDetailsViewController, didFinishAddingNote noteContent: String) -> Note {

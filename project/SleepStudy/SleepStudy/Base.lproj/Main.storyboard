@@ -625,18 +625,18 @@
                                 <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8db-Ha-Qr1" id="A3u-Oc-2AB">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tub-o0-7u0">
-                                            <rect key="frame" x="15" y="12" width="32" height="20"/>
+                                            <rect key="frame" x="15" y="12" width="31.5" height="19.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SAl-HU-v0b">
-                                            <rect key="frame" x="298" y="12" width="42" height="20"/>
+                                            <rect key="frame" x="298.5" y="12" width="41.5" height="19.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -655,6 +655,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Notes" id="TFM-gL-0LW">
+                        <barButtonItem key="leftBarButtonItem" title="back" id="eiJ-sO-pxK">
+                            <connections>
+                                <action selector="composeNoteButtonPressed:" destination="LCN-ZA-wab" id="zbX-nk-zfY"/>
+                                <segue destination="pg1-Bg-4JU" kind="show" id="clg-x0-I9y"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="compose" id="n3M-ao-4ro">
                             <connections>
                                 <action selector="composeNoteButtonPressed:" destination="LCN-ZA-wab" id="6hW-D3-Ax7"/>
@@ -693,7 +699,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="527"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Guc-oT-JJW" id="SzF-We-EOq">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="526"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="527"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" misplaced="YES" restorationIdentifier="newNoteTextView" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="tUs-xg-tA0">
@@ -720,7 +726,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="cBL-nN-K7H">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="Hgn-fG-XiH">
+                        <barButtonItem key="leftBarButtonItem" title="Done" id="Hgn-fG-XiH">
                             <connections>
                                 <action selector="backButtonPressed:" destination="aRc-O1-adf" id="huF-Qg-RlM"/>
                             </connections>
@@ -782,4 +788,7 @@
         <image name="htm_2013060413528b0103790" width="275" height="164"/>
         <image name="iphone6-mic-locations" width="522" height="213"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="clg-x0-I9y"/>
+    </inferredMetricsTieBreakers>
 </document>
