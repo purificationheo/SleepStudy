@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E50700201E484F14003A2F43 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E507001F1E484F14003A2F43 /* ListTableViewCell.swift */; };
+		E51F2F231E4319C7009DDF18 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51F2F221E4319C7009DDF18 /* RecordViewController.swift */; };
 		E57D95211E2F5BD6003B40AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57D95201E2F5BD6003B40AC /* AppDelegate.swift */; };
 		E57D95231E2F5BD6003B40AC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57D95221E2F5BD6003B40AC /* ViewController.swift */; };
 		E57D95261E2F5BD6003B40AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E57D95241E2F5BD6003B40AC /* Main.storyboard */; };
@@ -25,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E507001F1E484F14003A2F43 /* ListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
+		E51F2F221E4319C7009DDF18 /* RecordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
 		E57D951D1E2F5BD6003B40AC /* SleepStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SleepStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E57D95201E2F5BD6003B40AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E57D95221E2F5BD6003B40AC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -89,6 +93,8 @@
 				E57D952C1E2F5BD6003B40AC /* Info.plist */,
 				E58E68631E37284B0062AC18 /* TimeTableViewController.swift */,
 				E58E68651E37325E0062AC18 /* RecordTableViewController.swift */,
+				E51F2F221E4319C7009DDF18 /* RecordViewController.swift */,
+				E507001F1E484F14003A2F43 /* ListTableViewCell.swift */,
 				EDBD7C251E42FE2B0013EEC6 /* CameraViewController.swift */,
 			);
 			path = SleepStudy;
@@ -166,11 +172,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E50700201E484F14003A2F43 /* ListTableViewCell.swift in Sources */,
 				ED62FD951E445A51000A92D2 /* NoteDetailsViewControllerDelegate.swift in Sources */,
 				E57D95331E2F6076003B40AC /* UIViewController+Navigation.swift in Sources */,
 				E57D95231E2F5BD6003B40AC /* ViewController.swift in Sources */,
 				ED62FD911E445A51000A92D2 /* BackButtonDelegate.swift in Sources */,
 				E58E68641E37284B0062AC18 /* TimeTableViewController.swift in Sources */,
+				E51F2F231E4319C7009DDF18 /* RecordViewController.swift in Sources */,
 				ED62FD931E445A51000A92D2 /* Note.swift in Sources */,
 				ED62FD961E445A51000A92D2 /* NotesViewController.swift in Sources */,
 				EDBD7C261E42FE2B0013EEC6 /* CameraViewController.swift in Sources */,

@@ -74,12 +74,14 @@ class Record{
     var memos:Array<Memo>
     var captures:Array<Capture>
     let date:String
+    let length:String
     
-    init(path:String, date:String){
+    init(path:String, date:String, length:String){
         self.path = path
         self.date = date
         self.memos = []
         self.captures = []
+        self.length = length
     }
 }
 
