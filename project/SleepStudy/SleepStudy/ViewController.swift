@@ -42,6 +42,8 @@ class Subject{
         self.prof = prof
         self.place = place
         self.time = time
+        
+        
     }
 }
 
@@ -97,3 +99,4 @@ class Setting{
         memotypes = []
     }
 }
+
