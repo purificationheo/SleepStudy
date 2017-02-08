@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="duL-qs-Uy5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="duL-qs-Uy5">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -75,7 +75,7 @@
         <scene sceneID="InY-5F-s9u">
             <objects>
                 <collectionViewController title="TimeTable Scene" id="t7d-ZJ-ARa" customClass="TimetableCollectionViewCollectionViewController" customModule="SleepStudy" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="bWt-Qy-42t">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="bWt-Qy-42t">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -182,7 +182,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T7v-Jr-ZZf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2844" y="-548"/>
+            <point key="canvasLocation" x="2810" y="-427"/>
         </scene>
         <!--Preference-->
         <scene sceneID="B0e-aI-tF2">
@@ -357,11 +357,19 @@
                                             <rect key="frame" x="165" y="112" width="45" height="45"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GYz-Wo-i5M">
+                                            <rect key="frame" x="165" y="112" width="45" height="45"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <connections>
+                                                <action selector="touchButton:" destination="y1r-7W-re5" eventType="touchUpInside" id="8i5-YM-6TH"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="dateLabel" destination="jd2-gA-K0u" id="WMF-sA-bVg"/>
                                     <outlet property="listenImage" destination="URH-Ft-pZ5" id="xyQ-UD-Zl1"/>
+                                    <outlet property="playButton" destination="GYz-Wo-i5M" id="KsG-nS-Tn0"/>
                                     <outlet property="recordLength" destination="LkC-zL-968" id="gcv-nm-fEe"/>
                                 </connections>
                             </tableViewCell>
@@ -515,17 +523,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="156"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="수업까지 남은 시간" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nlt-GX-lEf">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="수업까지 남은 시간" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nlt-GX-lEf">
                                 <rect key="frame" x="110" y="20" width="154" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:14:37" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bEB-ZP-aXe">
-                                <rect key="frame" x="139" y="53" width="97" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -534,23 +535,32 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="modalDismiss:" destination="cAh-cw-cL3" eventType="touchUpInside" id="99W-zd-o5P"/>
-                                    <segue destination="Hl6-7M-QAd" kind="presentation" id="Mde-RM-iwY"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Microphone-outlined-circular-button" translatesAutoresizingMaskIntoConstraints="NO" id="VkC-Tn-0Jh">
                                 <rect key="frame" x="160" y="93" width="49" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:14:37" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bEB-ZP-aXe">
+                                <rect key="frame" x="136" y="53" width="97" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="recordButton" destination="li6-hM-U7Q" id="qDL-BV-Q6t"/>
+                        <outlet property="recordImage" destination="VkC-Tn-0Jh" id="Qu9-sW-4jX"/>
+                        <outlet property="sessionLabel" destination="nlt-GX-lEf" id="H5z-ZU-Pdb"/>
+                        <outlet property="timeLabel" destination="bEB-ZP-aXe" id="zRN-KE-wiL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FWG-bd-B29" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3665" y="470"/>
+            <point key="canvasLocation" x="2668" y="396"/>
         </scene>
         <!--Play-->
         <scene sceneID="Lru-y5-Yc6">
@@ -826,7 +836,7 @@
     <resources>
         <image name="127781-200" width="100" height="100"/>
         <image name="Microphone-outlined-circular-button" width="1000" height="1000"/>
-        <image name="Stop" width="128" height="128"/>
+        <image name="Stop" width="313" height="313"/>
         <image name="circle-camera-512-2" width="256" height="256"/>
         <image name="circle-edit-pen-pencil-outline-stroke-128" width="64" height="64"/>
         <image name="htm_2013060413528b0103790" width="275" height="164"/>
