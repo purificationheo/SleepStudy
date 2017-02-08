@@ -25,6 +25,8 @@
 		ED62FD941E445A51000A92D2 /* NoteDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED62FD8E1E445A51000A92D2 /* NoteDetailsViewController.swift */; };
 		ED62FD951E445A51000A92D2 /* NoteDetailsViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED62FD8F1E445A51000A92D2 /* NoteDetailsViewControllerDelegate.swift */; };
 		ED62FD961E445A51000A92D2 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED62FD901E445A51000A92D2 /* NotesViewController.swift */; };
+		ED96D6E41E4AE1670062D5A5 /* TimetableCollectionViewCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED96D6E31E4AE1670062D5A5 /* TimetableCollectionViewCollectionViewController.swift */; };
+		ED96D6E61E4AE1AF0062D5A5 /* TimeTableCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED96D6E51E4AE1AF0062D5A5 /* TimeTableCollectionViewCell.swift */; };
 		EDBD7C261E42FE2B0013EEC6 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBD7C251E42FE2B0013EEC6 /* CameraViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +51,8 @@
 		ED62FD8E1E445A51000A92D2 /* NoteDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteDetailsViewController.swift; sourceTree = "<group>"; };
 		ED62FD8F1E445A51000A92D2 /* NoteDetailsViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteDetailsViewControllerDelegate.swift; sourceTree = "<group>"; };
 		ED62FD901E445A51000A92D2 /* NotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
+		ED96D6E31E4AE1670062D5A5 /* TimetableCollectionViewCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimetableCollectionViewCollectionViewController.swift; sourceTree = "<group>"; };
+		ED96D6E51E4AE1AF0062D5A5 /* TimeTableCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeTableCollectionViewCell.swift; sourceTree = "<group>"; };
 		EDBD7C251E42FE2B0013EEC6 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CameraViewController.swift; path = ../CameraViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,25 +89,35 @@
 			isa = PBXGroup;
 			children = (
 				E57D95321E2F6076003B40AC /* UIViewController+Navigation.swift */,
-				ED62FD8B1E445A51000A92D2 /* BackButtonDelegate.swift */,
 				ED62FD8C1E445A51000A92D2 /* Database.swift */,
-				ED62FD8D1E445A51000A92D2 /* Note.swift */,
-				ED62FD8E1E445A51000A92D2 /* NoteDetailsViewController.swift */,
-				ED62FD8F1E445A51000A92D2 /* NoteDetailsViewControllerDelegate.swift */,
-				ED62FD901E445A51000A92D2 /* NotesViewController.swift */,
+				EDF8185E1E49BACC000BABDF /* memo */,
 				E57D95201E2F5BD6003B40AC /* AppDelegate.swift */,
 				E57D95221E2F5BD6003B40AC /* ViewController.swift */,
+				E58E68631E37284B0062AC18 /* TimeTableViewController.swift */,
+				ED96D6E51E4AE1AF0062D5A5 /* TimeTableCollectionViewCell.swift */,
+				ED96D6E31E4AE1670062D5A5 /* TimetableCollectionViewCollectionViewController.swift */,
 				E57D95241E2F5BD6003B40AC /* Main.storyboard */,
 				E57D95271E2F5BD6003B40AC /* Assets.xcassets */,
 				E57D95291E2F5BD6003B40AC /* LaunchScreen.storyboard */,
 				E57D952C1E2F5BD6003B40AC /* Info.plist */,
-				E58E68631E37284B0062AC18 /* TimeTableViewController.swift */,
 				E58E68651E37325E0062AC18 /* RecordTableViewController.swift */,
 				E51F2F221E4319C7009DDF18 /* RecordViewController.swift */,
 				E507001F1E484F14003A2F43 /* ListTableViewCell.swift */,
 				EDBD7C251E42FE2B0013EEC6 /* CameraViewController.swift */,
 			);
 			path = SleepStudy;
+			sourceTree = "<group>";
+		};
+		EDF8185E1E49BACC000BABDF /* memo */ = {
+			isa = PBXGroup;
+			children = (
+				ED62FD8B1E445A51000A92D2 /* BackButtonDelegate.swift */,
+				ED62FD8D1E445A51000A92D2 /* Note.swift */,
+				ED62FD901E445A51000A92D2 /* NotesViewController.swift */,
+				ED62FD8E1E445A51000A92D2 /* NoteDetailsViewController.swift */,
+				ED62FD8F1E445A51000A92D2 /* NoteDetailsViewControllerDelegate.swift */,
+			);
+			name = memo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,6 +199,7 @@
 				ED62FD911E445A51000A92D2 /* BackButtonDelegate.swift in Sources */,
 				E58E68641E37284B0062AC18 /* TimeTableViewController.swift in Sources */,
 				E51F2F231E4319C7009DDF18 /* RecordViewController.swift in Sources */,
+				ED96D6E41E4AE1670062D5A5 /* TimetableCollectionViewCollectionViewController.swift in Sources */,
 				E5BA275D1E49AB94000AB2C1 /* CustomCell.swift in Sources */,
 				ED62FD931E445A51000A92D2 /* Note.swift in Sources */,
 				ED62FD961E445A51000A92D2 /* NotesViewController.swift in Sources */,
@@ -193,6 +208,7 @@
 				ED62FD941E445A51000A92D2 /* NoteDetailsViewController.swift in Sources */,
 				ED62FD921E445A51000A92D2 /* Database.swift in Sources */,
 				E57D95211E2F5BD6003B40AC /* AppDelegate.swift in Sources */,
+				ED96D6E61E4AE1AF0062D5A5 /* TimeTableCollectionViewCell.swift in Sources */,
 				E58E68661E37325E0062AC18 /* RecordTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
