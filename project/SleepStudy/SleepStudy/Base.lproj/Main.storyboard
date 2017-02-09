@@ -364,12 +364,34 @@
                                                 <action selector="touchButton:" destination="y1r-7W-re5" eventType="touchUpInside" id="8i5-YM-6TH"/>
                                             </connections>
                                         </button>
+                                        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="imH-cr-6LY">
+                                            <rect key="frame" x="36" y="83" width="302" height="2"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </progressView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mkc-ny-vmx">
+                                            <rect key="frame" x="19" y="91" width="61" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lpN-1a-96d">
+                                            <rect key="frame" x="294" y="91" width="61" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="dateLabel" destination="jd2-gA-K0u" id="WMF-sA-bVg"/>
+                                    <outlet property="endTime" destination="lpN-1a-96d" id="xwt-of-thY"/>
                                     <outlet property="listenImage" destination="URH-Ft-pZ5" id="xyQ-UD-Zl1"/>
+                                    <outlet property="nowTime" destination="Mkc-ny-vmx" id="ja3-LD-xYG"/>
                                     <outlet property="playButton" destination="GYz-Wo-i5M" id="KsG-nS-Tn0"/>
+                                    <outlet property="playImage" destination="ZqC-KR-ByU" id="ATO-03-Hjc"/>
+                                    <outlet property="playProgress" destination="imH-cr-6LY" id="w7U-NW-Jfv"/>
                                     <outlet property="recordLength" destination="LkC-zL-968" id="gcv-nm-fEe"/>
                                 </connections>
                             </tableViewCell>
