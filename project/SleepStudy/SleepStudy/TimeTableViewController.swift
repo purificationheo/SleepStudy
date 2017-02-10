@@ -83,48 +83,9 @@ class TimeTableViewController: UITableViewController {
         subjects[2].records[1].captures += [Capture(path: "/cap/pic2.png", time:245)]
         subjects[2].records[2].captures += [Capture(path: "/cap/pic3.png", time:1554)]
 
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+        
 
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         
-        
-        //오늘이 무슨 요일인지?
-        
-        
-        //월 : 0 화 : 1 수 : 2 목 : 3 금 : 4
-        //subjects에 들어있는 항목 검사 -> 오늘 듣는 수업인지? 조건문
-        
-        
-        //몇 개의 row를 사용할건지
-        //월요일 -> 2를 return
-        return subjects.count
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "timeCell", for: indexPath)
-        // Configure the cell...
-        
-        //위에서 선택한 과목을 각각 출력하는 부분
-        let num = indexPath.row
-        cell.textLabel?.text = subjects[num].name
-        cell.detailTextLabel?.text = subjects[num].place
-        
-        return cell
-    }
-
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
