@@ -96,7 +96,7 @@ class Record{
     var memos:Array<Memo>
     var captures:Array<Capture>
     let date:String
-    let length:String
+    var length:String
     
     init(path:URL, date:String, length:String){
         self.path = path

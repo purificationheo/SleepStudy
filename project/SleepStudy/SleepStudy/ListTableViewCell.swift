@@ -28,6 +28,7 @@ class ListTableViewCell: UITableViewCell {
     @IBOutlet weak var nowTime: UILabel!
     @IBOutlet weak var endTime: UILabel!
     
+    @IBOutlet weak var memoLabel: UILabel!
     
     @IBAction func touchButton(_ sender: UIButton) {
         if !isPaused{
@@ -100,9 +101,6 @@ class ListTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         
-        self.playProgress.progress=0
-        nowTime.text="00:00:00"
-        endTime.text="00:00:00"
         
     }
 
