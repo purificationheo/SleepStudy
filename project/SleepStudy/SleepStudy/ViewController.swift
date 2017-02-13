@@ -37,7 +37,7 @@ extension Character {
         return scalars[scalars.startIndex].value
     }
 }
-class Subject{
+class Subject:NSObject, NSCoding{
     
     
     
@@ -57,6 +57,22 @@ class Subject{
         self.time = time
         self.tohex()
     }
+    required init(coder aDecoder: NSCoder) {
+        name = aDecoder.decodeObject(forKey: "name") as? String ?? ""
+        id = aDecoder.decodeObject(forKey: "id") as? String ?? ""
+        prof = aDecoder.decodeObject(forKey: "prof") as? String ?? ""
+        place = aDecoder.decodeObject(forKey: "place") as? String ?? ""
+        time = aDecoder.decodeObject(forKey: "time") as? [(Int,Int,Int)] ?? [(0,0,0)]
+        records = aDecoder.decodeObject(forKey: "records") as? [Record] ?? []
+    }
+    func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encode(name, forKey: "name")
+        aCoder.encode(id, forKey: "id")
+        aCoder.encode(prof, forKey: "prof")
+        aCoder.encode(place, forKey: "place")
+        aCoder.encode(time, forKey: "time")
+        aCoder.encode(records, forKey: "records")
+    }
     
     func tohex(){
         for i in self.name.characters{
@@ -68,7 +84,7 @@ class Subject{
 }
 
 
-class Memo{
+class Memo:NSObject, NSCoding{
     var content:String
     var type:String
     let time:Int
@@ -78,9 +94,19 @@ class Memo{
         self.type = type
         self.time = time
     }
+    required init(coder aDecoder: NSCoder) {
+        content = aDecoder.decodeObject(forKey: "content") as? String ?? ""
+        type = aDecoder.decodeObject(forKey: "type") as? String ?? ""
+        time = aDecoder.decodeObject(forKey: "time") as? Int ?? 0
+    }
+    func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encode(content, forKey: "content")
+        aCoder.encode(type, forKey: "type")
+        aCoder.encode(time, forKey: "time")
+    }
 }
 
-class Capture{
+class Capture:NSObject, NSCoding{
     var path:String
     let time:Int
     
@@ -90,7 +116,7 @@ class Capture{
     }
 }
 
-class Record{
+class Record:NSObject, NSCoding{
     
     var path:URL
     var memos:Array<Memo>
@@ -107,7 +133,7 @@ class Record{
     }
 }
 
-class Setting{
+class Setting:NSObject, NSCoding{
     
     var password:Data
     var theme:String

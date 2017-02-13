@@ -21,8 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        let fileManager = (FileManager .default)
         let directorys : [String]? = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory,FileManager.SearchPathDomainMask.allDomainsMask, true)
+        saveData()
         
         if (directorys != nil){
             let dictionary = getDocumentsDirectory(); //documents directory
@@ -30,18 +30,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             //  Create and insert the data into the Plist file  ....
             let plistfile = "myPlist.plist"
-            let myDictionary: NSMutableDictionary = ["Content": "This is a sample Plist file ........."]
             let plistpath = dictionary.appendingPathComponent(plistfile);
             
-            if !fileManager .fileExists(atPath: plistpath.path){//writing Plist file
-                myDictionary.write(toFile: plistpath.path, atomically: false)
-            }
-            else{            //Reading Plist file
-                print("Plist file found")
+            //Reading Plist file
+            print("Plist file found")
                 
-                let resultDictionary = NSMutableDictionary(contentsOfFile: plistpath.path)
-                print(resultDictionary?.description as Any)
-            }
+            let resultDictionary = NSMutableDictionary(contentsOfFile: plistpath.path)
+            print(resultDictionary?.description as Any)
             
         }
         else {
@@ -50,28 +45,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-    func savaDate(){
-        let fileManager = (FileManager .default)
+    func saveData(){
         let directorys : [String]? = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory,FileManager.SearchPathDomainMask.allDomainsMask, true)
         
         if (directorys != nil){
             let dictionary = getDocumentsDirectory(); //documents directory
-            
+            let sub = Subject(name: "a", prof: "b", place: "c", time: [(day: 1, startTime: 1, endTime: 1)])
             
             //  Create and insert the data into the Plist file  ....
             let plistfile = "myPlist.plist"
-            let myDictionary: NSMutableDictionary = ["Content": "This is a sample Plist file ........."]
+            var myDictionary: NSMutableDictionary = ["name": sub.name]
+            myDictionary["prof"] = sub.prof
+            myDictionary["place"] = sub.place
+            myDictionary["time"] = sub.time
+            
+            
+            
             let plistpath = dictionary.appendingPathComponent(plistfile);
             
-            if !fileManager .fileExists(atPath: plistpath.path){//writing Plist file
-                myDictionary.write(toFile: plistpath.path, atomically: false)
-            }
-            else{            //Reading Plist file
-                print("Plist file found")
-                
-                let resultDictionary = NSMutableDictionary(contentsOfFile: plistpath.path)
-                print(resultDictionary?.description as Any)
-            }
+            myDictionary.write(toFile: plistpath.path, atomically: false)
             
         }
         else {
