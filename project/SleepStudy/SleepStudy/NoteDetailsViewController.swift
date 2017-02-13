@@ -50,7 +50,9 @@ class NoteDetailsViewController: UITableViewController, UITextViewDelegate {
 
     
     @IBAction func backButtonPressed(_ sender: Any) {
-    
+        
+        let memo:Memo = Memo(content: NewNoteTextView.text, type: "default", time: curTime)
+        curRecord!.memos += [memo]
         backButtonDelegate?.backButtonPressedFrom(self)
     }
     

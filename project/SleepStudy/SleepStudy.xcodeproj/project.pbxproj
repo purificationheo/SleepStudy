@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E50700201E484F14003A2F43 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E507001F1E484F14003A2F43 /* ListTableViewCell.swift */; };
+		E512B4AE1E4D8D4100597FC6 /* MemoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E512B4AD1E4D8D4100597FC6 /* MemoTableViewCell.swift */; };
 		E51F2F231E4319C7009DDF18 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51F2F221E4319C7009DDF18 /* RecordViewController.swift */; };
 		E57D95211E2F5BD6003B40AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57D95201E2F5BD6003B40AC /* AppDelegate.swift */; };
 		E57D95231E2F5BD6003B40AC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57D95221E2F5BD6003B40AC /* ViewController.swift */; };
@@ -32,6 +33,7 @@
 
 /* Begin PBXFileReference section */
 		E507001F1E484F14003A2F43 /* ListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
+		E512B4AD1E4D8D4100597FC6 /* MemoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoTableViewCell.swift; sourceTree = "<group>"; };
 		E51F2F221E4319C7009DDF18 /* RecordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
 		E57D951D1E2F5BD6003B40AC /* SleepStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SleepStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E57D95201E2F5BD6003B40AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				E51F2F221E4319C7009DDF18 /* RecordViewController.swift */,
 				E507001F1E484F14003A2F43 /* ListTableViewCell.swift */,
 				EDBD7C251E42FE2B0013EEC6 /* CameraViewController.swift */,
+				E512B4AD1E4D8D4100597FC6 /* MemoTableViewCell.swift */,
 			);
 			path = SleepStudy;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 				ED62FD951E445A51000A92D2 /* NoteDetailsViewControllerDelegate.swift in Sources */,
 				E57D95331E2F6076003B40AC /* UIViewController+Navigation.swift in Sources */,
 				E57D95231E2F5BD6003B40AC /* ViewController.swift in Sources */,
+				E512B4AE1E4D8D4100597FC6 /* MemoTableViewCell.swift in Sources */,
 				ED62FD911E445A51000A92D2 /* BackButtonDelegate.swift in Sources */,
 				E58E68641E37284B0062AC18 /* TimeTableViewController.swift in Sources */,
 				E51F2F231E4319C7009DDF18 /* RecordViewController.swift in Sources */,

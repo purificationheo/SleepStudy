@@ -9,6 +9,8 @@
 import UIKit
 import AVFoundation
 
+var curRecord:Record?
+var curTime:Int=0
 class RecordViewController: UIViewController, AVAudioRecorderDelegate  {
     
     @IBOutlet weak var recordButton: UIButton!
@@ -22,11 +24,24 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate  {
     
     var stop = false
     
+    @IBOutlet weak var noteButton: UIButton!
+    @IBOutlet weak var noteImage: UIImageView!
+    
+    
+    func disableButtons(){
+        noteButton.frame = CGRect(x: 66, y: 82, width: 0, height: 0)
+        noteImage.image=nil
+    }
+    
+    func enableButtons(){
+        noteButton.frame = CGRect(x: 66, y: 82, width: 61, height: 61)
+        noteImage.image = UIImage(named: "pen")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         recordingSession = AVAudioSession.sharedInstance()
-        
+        disableButtons()
         do {
             try recordingSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
             try recordingSession.setActive(true)
@@ -47,7 +62,7 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate  {
     func loadRecordingUI() {
         recordButton.addTarget(self, action: #selector(recordTapped), for: .touchUpInside)
         
-        //view.addSubview(recordButton)
+        //view.addSubvievarecordButton)
     }
     func removepercent(str : String)-> String{
         var temp:String=""
@@ -89,6 +104,8 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate  {
             sessionLabel.text = "녹음 중"
             stop = false
             getTime()
+            enableButtons()
+            curRecord = Record(path: filenamefa!,date:dayStr!,length:"")
         } catch {
             finishRecording(success: false)
         }
@@ -103,6 +120,7 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate  {
             timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true){  _ in
             
             self.currentTime += 1
+            curTime = self.currentTime
             let hour = String(format: "%02d", self.currentTime/3600)
             let minute = String(format: "%02d", self.currentTime/60%60)
             let second = String(format: "%02d", self.currentTime%60)
@@ -130,7 +148,11 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate  {
         audioRecorder = nil
         recordImage.image=UIImage(named:"Microphone-outlined-circular-button")
         self.stop = true
-        curClass?.records += [Record(path: filenamefa!,date:dayStr!,length:lengthfa!)]
+        if let lth = lengthfa{
+            curRecord?.length = lth
+            curClass?.records += [curRecord!]
+        }
+        disableButtons()
     }
     func recordTapped() {
         if audioRecorder == nil {
