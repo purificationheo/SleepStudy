@@ -8,8 +8,14 @@
 
 import UIKit
 
-@UIApplicationMain
 
+
+func saveData(){
+    let ud = UserDefaults.standard
+    ud.set(NSKeyedArchiver.archivedData(withRootObject: subjects), forKey: "subjects")
+    ud.synchronize()
+}
+@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
@@ -26,58 +32,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             subjects = NSKeyedUnarchiver.unarchiveObject(with: data as Data) as! [Subject]
         }
         
-        /*let directorys : [String]? = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory,FileManager.SearchPathDomainMask.allDomainsMask, true)
-        saveData()
-        
-        if (directorys != nil){
-            let dictionary = getDocumentsDirectory(); //documents directory
-            
-            
-            //  Create and insert the data into the Plist file  ....
-            let plistfile = "myPlist.plist"
-            let plistpath = dictionary.appendingPathComponent(plistfile);
-            
-            //Reading Plist file
-            print("Plist file found")
-                
-            let resultDictionary = NSMutableDictionary(contentsOfFile: plistpath.path)
-            print(resultDictionary?.description as Any)
-            
-        }
-        else {
-            print("directory is empty")
-        }*/
-    
         return true
     }
 
-    func saveData(){
-        let ud = UserDefaults.standard
-        ud.set(NSKeyedArchiver.archivedData(withRootObject: subjects), forKey: "subjects")
-        ud.synchronize()
-        
-        let directorys : [String]? = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory,FileManager.SearchPathDomainMask.allDomainsMask, true)
-        
-        if (directorys != nil){
-            let dictionary = getDocumentsDirectory(); //documents directory
-            
-            
-            //  Create and insert the data into the Plist file  ....
-            let plistfile = "myPlist.plist"
-            let myDictionary: NSMutableDictionary = ["contents": ud]
-            
-            
-            
-            let plistpath = dictionary.appendingPathComponent(plistfile);
-            
-            myDictionary.write(toFile: plistpath.path, atomically: false)
-            
-        }
-        else {
-            print("directory is empty")
-        }
 
-    }
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
@@ -98,6 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        saveData()
     }
 
 

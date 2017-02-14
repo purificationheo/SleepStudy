@@ -74,20 +74,20 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate  {
         return temp
     }
     
-    var filenamefa:URL?
+    var filenamefa:String?
     var dayStr:String?
     
     func startRecording() {
         let now = NSDate()
         let cal = NSCalendar(calendarIdentifier:NSCalendar.Identifier.gregorian)!
-        let comps = cal.components([.year, .month, .day], from:now as Date)
+        let comps = cal.components([.year, .month, .day, .hour, .minute, .second], from:now as Date)
 
 
-        let filename = curClass!.id + String(comps.year!) + String(comps.month!) + String(comps.day!) + ".m4a"
+        let filename = curClass!.id + String(comps.year!) + String(comps.month!) + String(comps.day!) + String(comps.hour!) + String(comps.minute!) + String(comps.second!) + ".m4a"
         
         self.dayStr = "\(String(comps.year!))년 \(String(comps.month!))월 \(String(comps.day!))일"
         let audioFilename = getDocumentsDirectory().appendingPathComponent(filename)
-        self.filenamefa = audioFilename
+        self.filenamefa = filename
         let settings = [
             AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
             AVSampleRateKey: 12000,
@@ -153,6 +153,7 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate  {
             curClass?.records += [curRecord!]
         }
         disableButtons()
+        saveData()
     }
     func recordTapped() {
         if audioRecorder == nil {
