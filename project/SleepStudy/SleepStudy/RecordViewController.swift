@@ -19,6 +19,9 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate  {
     var recordingSession: AVAudioSession!
     var audioRecorder: AVAudioRecorder!
     
+    @IBOutlet weak var captureImage: UIImageView!
+    @IBOutlet weak var captureButton: UIButton!
+    
     @IBOutlet weak var sessionLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     
@@ -31,11 +34,15 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate  {
     func disableButtons(){
         noteButton.frame = CGRect(x: 66, y: 82, width: 0, height: 0)
         noteImage.image=nil
+        captureButton.frame = CGRect(x:241, y:93, width:0, height:0)
+        captureImage.image=nil
     }
     
     func enableButtons(){
         noteButton.frame = CGRect(x: 66, y: 82, width: 61, height: 61)
         noteImage.image = UIImage(named: "pen")
+        captureButton.frame = CGRect(x:241, y:93, width:61, height:61)
+        captureImage.image=UIImage(named: "circle-camera")
     }
     
     override func viewDidLoad() {

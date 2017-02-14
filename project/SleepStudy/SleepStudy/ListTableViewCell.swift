@@ -66,6 +66,13 @@ class ListTableViewCell: UITableViewCell {
                 let length = "\(hour):\(minute):\(second)"
                 self.nowTime.text=length
             }
+            if !((self.player?.isPlaying)!){
+                self.playImage.image=UIImage(named: "play-icon")
+                self.isPaused=true
+                timer?.invalidate()
+                self.player = nil
+                return
+            }
         }
     }
     func getDocumentsDirectory() -> URL {
