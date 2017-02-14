@@ -97,11 +97,11 @@ class RecordTableViewController: UITableViewController {
         
         switch output.0{
         case 0:
-            return 202.0
+            return 170.0
         case 1:
-            return 72.0
+            return 45.0
         default:
-            return 72.0
+            return 45.0
         }
         //Choose your custom row height
     }

@@ -147,13 +147,13 @@ class Capture:NSObject, NSCoding{
 
 class Record:NSObject, NSCoding{
     
-    var path:URL
+    var path:String
     var memos:Array<Memo>
     var captures:Array<Capture>
     let date:String
     var length:String
     
-    init(path:URL, date:String, length:String){
+    init(path:String, date:String, length:String){
         self.path = path
         self.date = date
         self.memos = []
@@ -162,7 +162,7 @@ class Record:NSObject, NSCoding{
     }
     
     required init(coder aDecoder: NSCoder) {
-        path = aDecoder.decodeObject(forKey: "path") as? URL ?? URL(string:"")!
+        path = aDecoder.decodeObject(forKey: "path") as? String ?? ""
         memos = aDecoder.decodeObject(forKey: "memos") as? [Memo] ?? []
         captures = aDecoder.decodeObject(forKey: "captures") as? [Capture] ?? []
         date = aDecoder.decodeObject(forKey: "date") as? String ?? ""

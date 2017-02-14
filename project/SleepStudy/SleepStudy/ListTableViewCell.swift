@@ -68,13 +68,17 @@ class ListTableViewCell: UITableViewCell {
             }
         }
     }
-    
+    func getDocumentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let documentsDirectory = paths[0]
+        return documentsDirectory
+    }
     func playSound() {
         
-        let url = selectedRecord?.path
-        print(url!)
+        let url = getDocumentsDirectory().appendingPathComponent((selectedRecord?.path)!)
+        print(url)
         do {
-            let asset = AVURLAsset(url: url!, options: nil)
+            let asset = AVURLAsset(url: url, options: nil)
             let audioDuration = asset.duration
             audioDurationSeconds = Int(CMTimeGetSeconds(audioDuration))
             
@@ -85,7 +89,7 @@ class ListTableViewCell: UITableViewCell {
             let length = "\(hour):\(minute):\(second)"
             
             endTime.text=length
-            player = try AVAudioPlayer(contentsOf: url!)
+            player = try AVAudioPlayer(contentsOf: url)
             guard let player = player else { return }
             
             
