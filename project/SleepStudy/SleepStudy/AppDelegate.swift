@@ -21,8 +21,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        let fileManager = (FileManager .default)
-        let directorys : [String]? = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory,FileManager.SearchPathDomainMask.allDomainsMask, true)
+        let ud = UserDefaults.standard
+        if let data = ud.object(forKey: "subjects") as? NSData {
+            subjects = NSKeyedUnarchiver.unarchiveObject(with: data as Data) as! [Subject]
+        }
+        
+        /*let directorys : [String]? = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory,FileManager.SearchPathDomainMask.allDomainsMask, true)
+        saveData()
         
         if (directorys != nil){
             let dictionary = getDocumentsDirectory(); //documents directory
@@ -30,28 +35,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             //  Create and insert the data into the Plist file  ....
             let plistfile = "myPlist.plist"
-            let myDictionary: NSMutableDictionary = ["Content": "This is a sample Plist file ........."]
             let plistpath = dictionary.appendingPathComponent(plistfile);
             
-            if !fileManager .fileExists(atPath: plistpath.path){//writing Plist file
-                myDictionary.write(toFile: plistpath.path, atomically: false)
-            }
-            else{            //Reading Plist file
-                print("Plist file found")
+            //Reading Plist file
+            print("Plist file found")
                 
-                let resultDictionary = NSMutableDictionary(contentsOfFile: plistpath.path)
-                print(resultDictionary?.description as Any)
-            }
+            let resultDictionary = NSMutableDictionary(contentsOfFile: plistpath.path)
+            print(resultDictionary?.description as Any)
             
         }
         else {
             print("directory is empty")
-        }
+        }*/
+    
         return true
     }
 
-    func savaDate(){
-        let fileManager = (FileManager .default)
+    func saveData(){
+        let ud = UserDefaults.standard
+        ud.set(NSKeyedArchiver.archivedData(withRootObject: subjects), forKey: "subjects")
+        ud.synchronize()
+        
         let directorys : [String]? = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory,FileManager.SearchPathDomainMask.allDomainsMask, true)
         
         if (directorys != nil){
@@ -60,18 +64,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             //  Create and insert the data into the Plist file  ....
             let plistfile = "myPlist.plist"
-            let myDictionary: NSMutableDictionary = ["Content": "This is a sample Plist file ........."]
+            let myDictionary: NSMutableDictionary = ["contents": ud]
+            
+            
+            
             let plistpath = dictionary.appendingPathComponent(plistfile);
             
-            if !fileManager .fileExists(atPath: plistpath.path){//writing Plist file
-                myDictionary.write(toFile: plistpath.path, atomically: false)
-            }
-            else{            //Reading Plist file
-                print("Plist file found")
-                
-                let resultDictionary = NSMutableDictionary(contentsOfFile: plistpath.path)
-                print(resultDictionary?.description as Any)
-            }
+            myDictionary.write(toFile: plistpath.path, atomically: false)
             
         }
         else {
