@@ -14,7 +14,9 @@ class ViewController: UIViewController {
        
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        if subjects.count>0{
+            curClass = subjects[0]
+        }
     }
     
     
@@ -55,6 +57,7 @@ class Subject:NSObject, NSCoding{
         self.prof = prof
         self.place = place
         self.time = time
+        super.init()
         self.tohex()
     }
     required init(coder aDecoder: NSCoder) {
@@ -62,15 +65,32 @@ class Subject:NSObject, NSCoding{
         id = aDecoder.decodeObject(forKey: "id") as? String ?? ""
         prof = aDecoder.decodeObject(forKey: "prof") as? String ?? ""
         place = aDecoder.decodeObject(forKey: "place") as? String ?? ""
+        
+        let num = aDecoder.decodeObject(forKey: "num") as? Int ?? 0
+        time = []
+        for i in 0...num{
+            let day = aDecoder.decodeObject(forKey: "time\(i).day") as? Int ?? -1
+            let startTime = aDecoder.decodeObject(forKey: "time\(i).startTime") as? Int ?? -1
+            let endTime = aDecoder.decodeObject(forKey: "time\(i).endTime") as? Int ?? -1
+            let temp:[(day:Int,startTime:Int,endTime:Int)] = [(day,startTime,endTime)]
+            time+=temp
+        }
         time = aDecoder.decodeObject(forKey: "time") as? [(Int,Int,Int)] ?? [(0,0,0)]
         records = aDecoder.decodeObject(forKey: "records") as? [Record] ?? []
     }
-    func encodeWithCoder(aCoder: NSCoder) {
+    func encode(with aCoder: NSCoder) {
         aCoder.encode(name, forKey: "name")
         aCoder.encode(id, forKey: "id")
         aCoder.encode(prof, forKey: "prof")
         aCoder.encode(place, forKey: "place")
-        aCoder.encode(time, forKey: "time")
+        aCoder.encode(time.count, forKey: "num")
+        var count=0
+        for i in time{
+            aCoder.encode(i.day, forKey: "time\(count).day")
+            aCoder.encode(i.startTime, forKey: "time\(count).startTime")
+            aCoder.encode(i.endTime, forKey: "time\(count).endTime")
+            count+=1
+        }
         aCoder.encode(records, forKey: "records")
     }
     
@@ -99,7 +119,7 @@ class Memo:NSObject, NSCoding{
         type = aDecoder.decodeObject(forKey: "type") as? String ?? ""
         time = aDecoder.decodeObject(forKey: "time") as? Int ?? 0
     }
-    func encodeWithCoder(aCoder: NSCoder) {
+    func encode(with aCoder: NSCoder) {
         aCoder.encode(content, forKey: "content")
         aCoder.encode(type, forKey: "type")
         aCoder.encode(time, forKey: "time")
@@ -113,6 +133,15 @@ class Capture:NSObject, NSCoding{
     init(path:String, time:Int){
         self.path = path
         self.time = time
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        path = aDecoder.decodeObject(forKey: "path") as? String ?? ""
+        time = aDecoder.decodeObject(forKey: "time") as? Int ?? 0
+    }
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(path, forKey: "path")
+        aCoder.encode(time, forKey: "time")
     }
 }
 
@@ -131,6 +160,21 @@ class Record:NSObject, NSCoding{
         self.captures = []
         self.length = length
     }
+    
+    required init(coder aDecoder: NSCoder) {
+        path = aDecoder.decodeObject(forKey: "path") as? URL ?? URL(string:"")!
+        memos = aDecoder.decodeObject(forKey: "memos") as? [Memo] ?? []
+        captures = aDecoder.decodeObject(forKey: "captures") as? [Capture] ?? []
+        date = aDecoder.decodeObject(forKey: "date") as? String ?? ""
+        length = aDecoder.decodeObject(forKey: "length") as? String ?? ""
+    }
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(path, forKey: "path")
+        aCoder.encode(memos, forKey: "memos")
+        aCoder.encode(captures, forKey: "captures")
+        aCoder.encode(date, forKey: "date")
+        aCoder.encode(length, forKey: "length")
+    }
 }
 
 class Setting:NSObject, NSCoding{
@@ -139,10 +183,21 @@ class Setting:NSObject, NSCoding{
     var theme:String
     var memotypes:Array<String>
     
-    init(){
+    override init(){
         password = Data()
         theme = ""
         memotypes = []
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        password = aDecoder.decodeObject(forKey: "password") as? Data ?? Data()
+        theme = aDecoder.decodeObject(forKey: "theme") as? String ?? ""
+        memotypes = aDecoder.decodeObject(forKey: "memotypes") as? [String] ?? []
+    }
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(password, forKey: "password")
+        aCoder.encode(theme, forKey: "theme")
+        aCoder.encode(memotypes, forKey: "memotypes")
     }
 }
 

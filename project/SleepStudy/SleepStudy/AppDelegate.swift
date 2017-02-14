@@ -21,7 +21,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        let directorys : [String]? = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory,FileManager.SearchPathDomainMask.allDomainsMask, true)
+        let ud = UserDefaults.standard
+        if let data = ud.object(forKey: "subjects") as? NSData {
+            subjects = NSKeyedUnarchiver.unarchiveObject(with: data as Data) as! [Subject]
+        }
+        
+        /*let directorys : [String]? = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory,FileManager.SearchPathDomainMask.allDomainsMask, true)
         saveData()
         
         if (directorys != nil){
@@ -41,23 +46,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         else {
             print("directory is empty")
-        }
+        }*/
+    
         return true
     }
 
     func saveData(){
+        let ud = UserDefaults.standard
+        ud.set(NSKeyedArchiver.archivedData(withRootObject: subjects), forKey: "subjects")
+        ud.synchronize()
+        
         let directorys : [String]? = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory,FileManager.SearchPathDomainMask.allDomainsMask, true)
         
         if (directorys != nil){
             let dictionary = getDocumentsDirectory(); //documents directory
-            let sub = Subject(name: "a", prof: "b", place: "c", time: [(day: 1, startTime: 1, endTime: 1)])
+            
             
             //  Create and insert the data into the Plist file  ....
             let plistfile = "myPlist.plist"
-            var myDictionary: NSMutableDictionary = ["name": sub.name]
-            myDictionary["prof"] = sub.prof
-            myDictionary["place"] = sub.place
-            myDictionary["time"] = sub.time
+            let myDictionary: NSMutableDictionary = ["contents": ud]
             
             
             

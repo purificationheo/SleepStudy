@@ -7,20 +7,21 @@
 //
 
 import UIKit
-
+/*
+let subjects:[Subject] = [Subject(name: "조직행동론",prof: "전재욱",place: "LP 504호",time:[(0,840,915),(2,840,915)]),
+                          Subject(name: "네트워크",prof: "민성기",place: "정보관 202호",time:[(1,540,615),(3,540,615)]),
+                          Subject(name: "교직실무",prof: "김재덕",place: "교욱관 203호",time:[(0,600,730),(4,600,730)])]*/
+var subjects:[Subject] = []
 var curClass:Subject?
 
 class TimeTableViewController: UITableViewController {
 
     //var subjects = Subject(name: "과목명", prof: "교수이름", place: "장소", time:[(day:0,startTime:0,endTime:0)])
     
-    let subjects:[Subject] = [Subject(name: "조직행동론",prof: "전재욱",place: "LP 504호",time:[(0,840,915),(2,840,915)]),
-                              Subject(name: "네트워크",prof: "민성기",place: "정보관 202호",time:[(1,540,615),(3,540,615)]),
-                              Subject(name: "교직실무",prof: "김재덕",place: "교욱관 203호",time:[(0,600,730),(4,600,730)])]
+    
     
 
     override func viewDidLoad() {
-        curClass = subjects[0]
         super.viewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations
