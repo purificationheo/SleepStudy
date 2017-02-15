@@ -6,6 +6,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
+<<<<<<< HEAD
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -17,6 +18,17 @@
             endingLineNumber = "38"
             landmarkName = "init(name:prof:place:time:)"
             landmarkType = "7">
+=======
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SleepStudy/MemoViewController.swift"
+            timestampString = "507717040.116594"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "451"
+            endingLineNumber = "451">
+>>>>>>> master
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -25,6 +37,7 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
+<<<<<<< HEAD
             filePath = "SleepStudy/ViewController.swift"
             timestampString = "507542289.782121"
             startingColumnNumber = "9223372036854775807"
@@ -32,6 +45,15 @@
             startingLineNumber = "39"
             endingLineNumber = "39"
             landmarkName = "init(name:prof:place:time:)"
+=======
+            filePath = "SleepStudy/MyDocument.swift"
+            timestampString = "507700929.464674"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "loadFromContents(contents:ofType:)"
+>>>>>>> master
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,6 +63,7 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
+<<<<<<< HEAD
             filePath = "SleepStudy/ViewController.swift"
             timestampString = "507542306.33783"
             startingColumnNumber = "9223372036854775807"
@@ -49,6 +72,30 @@
             endingLineNumber = "78"
             landmarkName = "init(path:date:)"
             landmarkType = "7">
+=======
+            filePath = "SleepStudy/MemoViewController.swift"
+            timestampString = "507717040.116594"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "412"
+            endingLineNumber = "412">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SleepStudy/TimeTableViewController.swift"
+            timestampString = "508145517.614532"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "subjects"
+            landmarkType = "24">
+>>>>>>> master
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

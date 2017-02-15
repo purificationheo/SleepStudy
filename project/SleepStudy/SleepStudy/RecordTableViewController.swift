@@ -12,6 +12,8 @@ class RecordTableViewController: UITableViewController {
 
     var selectedSubject:Subject?
     
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,23 +33,37 @@ class RecordTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        let count:Int = (selectedSubject?.records.count)!
+
+        
+        return count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "fileList", for: indexPath) as! ListTableViewCell
 
+        
         // Configure the cell...
-
+        
+        let num = indexPath.row
+        cell.listenImage.image = UIImage(named: "143-512")
+        cell.dateLabel.text = (selectedSubject?.records[num].date)! + " 수업"
+        cell.recordLength.text = "(" + (selectedSubject?.records[num].length)! + ")"
+        cell.selectedRecord = selectedSubject?.records[num]
         return cell
     }
-    */
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: IndexPath) {
+        let indexOfTappedRow = indexPath.row
+        
+        print(indexOfTappedRow)
+    }
 
     /*
     // Override to support conditional editing of the table view.
