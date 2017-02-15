@@ -12,16 +12,21 @@ class RecordTableViewController: UITableViewController {
 
     var selectedSubject:Subject?
     
+    @IBOutlet weak var navi: UINavigationItem!
 
     var cellOrder : [(Int,Int,Int)] = []
     override func viewDidLoad() {
         super.viewDidLoad()
+        navi.title = selectedSubject?.name
         self.tableView.separatorColor = UIColor.clear
         if let subject = selectedSubject{
             for i in 0..<subject.records.count{
                 cellOrder.append((0,i,0))
                 for j in 0..<subject.records[i].memos.count{
                     cellOrder.append((1,i,j))
+                }
+                for j in 0..<subject.records[i].captures.count{
+                    cellOrder.append((2,i,j))
                 }
             }
         }
@@ -83,6 +88,12 @@ class RecordTableViewController: UITableViewController {
             cell2.memoLabel.text = selectedSubject?.records[output.1].memos[output.2].content
             
             return cell2
+            
+        case 2:
+            let cell3 = tableView.dequeueReusableCell(withIdentifier: "pictureList",for: indexPath) as! ListTableViewCell
+            cell3.captureImage.image=UIImage(contentsOfFile: (selectedSubject?.records[output.1].captures[output.2].path)!)
+            
+            return cell3
         
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "memoList", for: indexPath)
@@ -105,7 +116,42 @@ class RecordTableViewController: UITableViewController {
         }
         //Choose your custom row height
     }
-
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.delete {
+            let num = indexPath.row
+            let output = cellOrder[num]
+            //tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
+            switch output.0{
+            case 0:
+                for i in num...cellOrder.count-1{
+                    if cellOrder[i].1 == output.1{
+                        //tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
+                    }
+                }
+                selectedSubject?.records.remove(at: output.1)
+                break
+            case 1:
+                selectedSubject?.records[output.1].memos.remove(at: output.2)
+                break
+            case 2:
+                selectedSubject?.records[output.1].captures.remove(at:output.2)
+                break;
+            default : break
+            }
+            cellOrder = []
+            if let subject = selectedSubject{
+                for i in 0..<subject.records.count{
+                    cellOrder.append((0,i,0))
+                    for j in 0..<subject.records[i].memos.count{
+                        cellOrder.append((1,i,j))
+                    }
+                }
+            }
+            print(cellOrder.count)
+            tableView.reloadData()
+            saveData()
+        }
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

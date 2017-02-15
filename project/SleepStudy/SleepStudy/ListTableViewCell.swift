@@ -30,6 +30,8 @@ class ListTableViewCell: UITableViewCell {
     
     @IBOutlet weak var memoLabel: UILabel!
     
+    @IBOutlet weak var captureImage: UIImageView!
+    
     @IBAction func touchButton(_ sender: UIButton) {
         if !isPaused{
             player?.pause()
@@ -65,6 +67,13 @@ class ListTableViewCell: UITableViewCell {
                 let second = String(format: "%02d", currentTime%60)
                 let length = "\(hour):\(minute):\(second)"
                 self.nowTime.text=length
+            }
+            if !((self.player?.isPlaying)!){
+                self.playImage.image=UIImage(named: "play-icon")
+                self.isPaused=true
+                timer?.invalidate()
+                self.player = nil
+                return
             }
         }
     }
