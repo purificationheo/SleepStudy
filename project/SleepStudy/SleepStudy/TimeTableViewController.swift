@@ -14,6 +14,8 @@ import UIKit
 var subjects:[Subject] = []
 var curClass:Subject?
 
+var homeScene:UIViewController?
+
 class TimeTableViewController: UITableViewController {
 
     //var subjects = Subject(name: "과목명", prof: "교수이름", place: "장소", time:[(day:0,startTime:0,endTime:0)])
@@ -23,7 +25,7 @@ class TimeTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        homeScene = self
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -127,6 +129,9 @@ class TimeTableViewController: UITableViewController {
         return cell
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        self.tableView.reloadData() // No need for semicolon
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -171,11 +176,14 @@ class TimeTableViewController: UITableViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
-        let destVC = segue.destination as! RecordTableViewController
-        let selectedIndex = self.tableView.indexPathForSelectedRow?.row
-        let selected = subjects[selectedIndex!]
         
-        destVC.selectedSubject = selected
+        if let destVC = segue.destination as? RecordTableViewController{
+            let selectedIndex = self.tableView.indexPathForSelectedRow?.row
+            let selected = subjects[selectedIndex!]
+        
+            destVC.selectedIndex = selectedIndex
+            destVC.selectedSubject = selected
+        }
     }
 }
  
