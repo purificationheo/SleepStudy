@@ -10,6 +10,7 @@ import UIKit
 
 class RecordTableViewController: UITableViewController {
 
+    var selectedIndex:Int?
     var selectedSubject:Subject?
     
     @IBOutlet weak var navi: UINavigationItem!
@@ -30,6 +31,7 @@ class RecordTableViewController: UITableViewController {
                 }
             }
         }
+        cellOrder.append((3,0,0))
         print(cellOrder.count)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -53,11 +55,7 @@ class RecordTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        var count:Int = (selectedSubject?.records.count)!
-        for i in (selectedSubject?.records)!{
-            count+=i.memos.count
-        }
-        return count
+        return cellOrder.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -94,6 +92,9 @@ class RecordTableViewController: UITableViewController {
             cell3.captureImage.image=UIImage(contentsOfFile: (selectedSubject?.records[output.1].captures[output.2].path)!)
             
             return cell3
+        case 3:
+            let cell4 = tableView.dequeueReusableCell(withIdentifier: "bottomCell",for: indexPath) as! ListTableViewCell
+            return cell4
         
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "memoList", for: indexPath)
@@ -145,13 +146,24 @@ class RecordTableViewController: UITableViewController {
                     for j in 0..<subject.records[i].memos.count{
                         cellOrder.append((1,i,j))
                     }
+                    for j in 0..<subject.records[i].captures.count{
+                        cellOrder.append((2,i,j))
+                    }
                 }
             }
+            cellOrder.append((3,0,0))
             print(cellOrder.count)
             tableView.reloadData()
             saveData()
         }
     }
+    
+    @IBAction func deleteSubject(_ sender: Any) {
+        subjects.remove(at: selectedIndex!)
+        navigationBack(homeScene!)
+    }
+    
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
