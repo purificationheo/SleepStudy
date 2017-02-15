@@ -51,8 +51,68 @@ class TimeTableViewController: UITableViewController {
         
         //오늘이 무슨 요일인지?
         
-
-
+        
+        //월 : 0 화 : 1 수 : 2 목 : 3 금 : 4
+        //subjects에 들어있는 항목 검사 -> 오늘 듣는 수업인지? 조건문
+        
+        
+        //몇 개의 row를 사용할건지
+        //월요일 -> 2를 return
+        return subjects.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "timeCell", for: indexPath) as! TimeTableViewCell
+        // Configure the cell...
+        
+        //위에서 선택한 과목을 각각 출력하는 부분
+        let num = indexPath.row
+        cell.subjectName.text = subjects[num].name
+        cell.subjectPlace.text = subjects[num].place
+        var str = ""
+        for i in subjects[num].time{
+            print(i)
+            let day:String?
+            switch i.day{
+            case 0:
+                day = "월"
+                break
+            case 1:
+                day = "화"
+                break
+            case 2:
+                day = "수"
+                break
+            case 3:
+                day = "목"
+                break
+            case 4:
+                day = "금"
+                break
+            default:
+                day = ""
+            }
+            
+            let startHour = i.startTime/60
+            let startMinute = i.startTime%60
+            let startIsPM = startHour/12
+            
+            let endHour = i.endTime/60
+            let endMinute = i.endTime%60
+            let endIsPM = endHour/12
+            
+            if str == ""{
+                str += "\(day!)요일 \(startHour)시 \(startMinute)분 ~ \(endHour)시 \(endMinute)분"
+            }else{
+                str += " / \(day!)요일 \(startHour)시 \(startMinute)분 ~ \(endHour)시 \(endMinute)분"
+            }
+            
+            
+            
+        }
+        cell.subjectTime.text = str
+        return cell
+    }
     override func viewWillAppear(_ animated: Bool) {
         self.tableView.reloadData() // No need for semicolon
     }

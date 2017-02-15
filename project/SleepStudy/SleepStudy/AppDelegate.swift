@@ -21,8 +21,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions:
+        [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+
         let ud = UserDefaults.standard
         if let data = ud.object(forKey: "subjects") as? NSData {
             subjects = NSKeyedUnarchiver.unarchiveObject(with: data as Data) as! [Subject]

@@ -160,6 +160,7 @@ class RecordTableViewController: UITableViewController {
     
     @IBAction func deleteSubject(_ sender: Any) {
         subjects.remove(at: selectedIndex!)
+        saveData()
         navigationBack(homeScene!)
     }
     

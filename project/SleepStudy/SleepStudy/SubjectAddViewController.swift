@@ -57,7 +57,11 @@ class SubjectAddViewController: UIViewController, UIPickerViewDelegate, UIPicker
             self.present(alertController, animated: true, completion: nil)
             return
         }
-        if timeInfo.count == 0 {
+        
+        newSubject.time += [(day:temp1.0, startTime:temp1.1, endTime:temp1.2)]
+        newSubject.time += [(day:temp2.0, startTime:temp2.1, endTime:temp2.2)]
+        
+        if newSubject.time.count != 2 {
             let alertController = UIAlertController(title: "Error", message:
                 "시간을 입력해주세요", preferredStyle: UIAlertControllerStyle.alert)
             alertController.addAction(UIAlertAction(title: "취소", style: UIAlertActionStyle.default,handler: nil))
@@ -65,12 +69,13 @@ class SubjectAddViewController: UIViewController, UIPickerViewDelegate, UIPicker
             self.present(alertController, animated: true, completion: nil)
             return
         }
-        newSubject.time = timeInfo
+
         
         subjects += [newSubject]
         print(subjects.count)
+        
         saveData()
-
+    }
 
 
 
@@ -105,7 +110,8 @@ class SubjectAddViewController: UIViewController, UIPickerViewDelegate, UIPicker
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
                 return pickerData[component][row]
 }
-    
+    var temp1 = (0,0,0)
+    var temp2 = (0,0,0)
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int,
         inComponent component: Int)
     {
@@ -119,22 +125,21 @@ class SubjectAddViewController: UIViewController, UIPickerViewDelegate, UIPicker
         let endhour = pickerData[5][timePicker.selectedRow(inComponent: 5)]
         let endminute = pickerData[6][timePicker.selectedRow(inComponent: 6)]
         
-        var temp = (0,0,0)
         switch day{
         case "월":
-            temp.0 = 0
+            temp1.0 = 0
             break
         case "화":
-            temp.0 = 1
+            temp1.0 = 1
             break
         case "수":
-            temp.0 = 2
+            temp1.0 = 2
             break
         case "목":
-            temp.0 = 3
+            temp1.0 = 3
             break
         case "금":
-            temp.0 = 4
+            temp1.0 = 4
             break
         default:
             return
@@ -143,9 +148,9 @@ class SubjectAddViewController: UIViewController, UIPickerViewDelegate, UIPicker
         if ampm == "PM"{
             isPM=1
         }
-        temp.1 = (Int(starthour)! + isPM * 12) * 60 + Int(startminute)!
-        temp.2 = (Int(endhour)! + isPM * 12) * 60 + Int(endminute)!
-        timeInfo += [temp]
+        temp1.1 = (Int(starthour)! + isPM * 12) * 60 + Int(startminute)!
+        temp1.2 = (Int(endhour)! + isPM * 12) * 60 + Int(endminute)!
+        
        return timePickerText.text =  "\(day)요일  " + "\(ampm) " + " \(starthour)시  " + "\(startminute)분" + " ~ \(ampm2)  " + "\(endhour)시  " + "\(endminute)분"
             
         } else if pickerView == timePicker2 {
@@ -157,22 +162,22 @@ class SubjectAddViewController: UIViewController, UIPickerViewDelegate, UIPicker
         let endhour = pickerData[5][timePicker2.selectedRow(inComponent: 5)]
         let endminute = pickerData[6][timePicker2.selectedRow(inComponent: 6)]
         
-        var temp = (0,0,0)
+
         switch day{
         case "월":
-            temp.0 = 0
+            temp2.0 = 0
             break
         case "화":
-            temp.0 = 1
+            temp2.0 = 1
             break
         case "수":
-            temp.0 = 2
+            temp2.0 = 2
             break
         case "목":
-            temp.0 = 3
+            temp2.0 = 3
             break
         case "금":
-            temp.0 = 4
+            temp2.0 = 4
             break
         default:
             return
@@ -181,14 +186,15 @@ class SubjectAddViewController: UIViewController, UIPickerViewDelegate, UIPicker
         if ampm == "PM"{
             isPM=1
         }
-        temp.1 = (Int(starthour)! + isPM * 12) * 60 + Int(startminute)!
-        temp.2 = (Int(endhour)! + isPM * 12) * 60 + Int(endminute)!
-        timeInfo += [temp]
+        temp2.1 = (Int(starthour)! + isPM * 12) * 60 + Int(startminute)!
+        temp2.2 = (Int(endhour)! + isPM * 12) * 60 + Int(endminute)!
+
        return timePickerText2.text =  "\(day)요일  " + "\(ampm) " + " \(starthour)시  " + "\(startminute)분" + " ~ \(ampm2)  " + "\(endhour)시  " + "\(endminute)분"
     }
         
     }
-    
+
+
            // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation

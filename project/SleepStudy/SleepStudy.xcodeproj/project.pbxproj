@@ -20,6 +20,7 @@
 		E58E68661E37325E0062AC18 /* RecordTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58E68651E37325E0062AC18 /* RecordTableViewController.swift */; };
 		E5BA275D1E49AB94000AB2C1 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BA275C1E49AB94000AB2C1 /* CustomCell.swift */; };
 		E5BA275F1E49ABBF000AB2C1 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BA275E1E49ABBE000AB2C1 /* DetailsViewController.swift */; };
+		E5D39FB21E54260700BD8DA6 /* TimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D39FB11E54260700BD8DA6 /* TimeTableViewCell.swift */; };
 		ED33E4CE1E54017F0074AABB /* SubjectAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED33E4CD1E54017F0074AABB /* SubjectAddViewController.swift */; };
 		ED62FD911E445A51000A92D2 /* BackButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED62FD8B1E445A51000A92D2 /* BackButtonDelegate.swift */; };
 		ED62FD921E445A51000A92D2 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED62FD8C1E445A51000A92D2 /* Database.swift */; };
@@ -48,6 +49,7 @@
 		E58E68651E37325E0062AC18 /* RecordTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordTableViewController.swift; sourceTree = "<group>"; };
 		E5BA275C1E49AB94000AB2C1 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		E5BA275E1E49ABBE000AB2C1 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		E5D39FB11E54260700BD8DA6 /* TimeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeTableViewCell.swift; sourceTree = "<group>"; };
 		ED33E4CD1E54017F0074AABB /* SubjectAddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectAddViewController.swift; sourceTree = "<group>"; };
 		ED62FD8B1E445A51000A92D2 /* BackButtonDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackButtonDelegate.swift; sourceTree = "<group>"; };
 		ED62FD8C1E445A51000A92D2 /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				E507001F1E484F14003A2F43 /* ListTableViewCell.swift */,
 				EDBD7C251E42FE2B0013EEC6 /* CameraViewController.swift */,
 				E512B4AD1E4D8D4100597FC6 /* MemoTableViewCell.swift */,
+				E5D39FB11E54260700BD8DA6 /* TimeTableViewCell.swift */,
 			);
 			path = SleepStudy;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 				ED62FD961E445A51000A92D2 /* NotesViewController.swift in Sources */,
 				EDBD7C261E42FE2B0013EEC6 /* CameraViewController.swift in Sources */,
 				E5BA275F1E49ABBF000AB2C1 /* DetailsViewController.swift in Sources */,
+				E5D39FB21E54260700BD8DA6 /* TimeTableViewCell.swift in Sources */,
 				ED33E4CE1E54017F0074AABB /* SubjectAddViewController.swift in Sources */,
 				ED62FD941E445A51000A92D2 /* NoteDetailsViewController.swift in Sources */,
 				ED62FD921E445A51000A92D2 /* Database.swift in Sources */,

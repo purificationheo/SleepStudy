@@ -66,16 +66,15 @@ class Subject:NSObject, NSCoding{
         prof = aDecoder.decodeObject(forKey: "prof") as? String ?? ""
         place = aDecoder.decodeObject(forKey: "place") as? String ?? ""
         
-        let num = aDecoder.decodeObject(forKey: "num") as? Int ?? 0
+        let num = aDecoder.decodeInteger(forKey:"num")
         time = []
-        for i in 0...num{
-            let day = aDecoder.decodeObject(forKey: "time\(i).day") as? Int ?? -1
-            let startTime = aDecoder.decodeObject(forKey: "time\(i).startTime") as? Int ?? -1
-            let endTime = aDecoder.decodeObject(forKey: "time\(i).endTime") as? Int ?? -1
+        for i in 0..<num{
+            let day = aDecoder.decodeInteger(forKey: "time\(i).day")
+            let startTime = aDecoder.decodeInteger(forKey: "time\(i).startTime")
+            let endTime = aDecoder.decodeInteger(forKey: "time\(i).endTime")
             let temp:[(day:Int,startTime:Int,endTime:Int)] = [(day,startTime,endTime)]
             time+=temp
         }
-        time = aDecoder.decodeObject(forKey: "time") as? [(Int,Int,Int)] ?? [(0,0,0)]
         records = aDecoder.decodeObject(forKey: "records") as? [Record] ?? []
     }
     func encode(with aCoder: NSCoder) {
@@ -84,6 +83,7 @@ class Subject:NSObject, NSCoding{
         aCoder.encode(prof, forKey: "prof")
         aCoder.encode(place, forKey: "place")
         aCoder.encode(time.count, forKey: "num")
+        print(time.count)
         var count=0
         for i in time{
             aCoder.encode(i.day, forKey: "time\(count).day")
