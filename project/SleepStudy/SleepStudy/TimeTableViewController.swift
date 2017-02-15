@@ -8,12 +8,19 @@
 
 import UIKit
 
+/*var subjects:[Subject] = [Subject(name: "조직행동론",prof: "전재욱",place: "LP 504호",time:[(0,840,915),(2,840,915)]),
+                          Subject(name: "네트워크",prof: "민성기",place: "정보관 202호",time:[(1,540,615),(3,540,615)]),
+                          Subject(name: "교직실무",prof: "김재덕",place: "교욱관 203호",time:[(0,600,730),(4,600,730)])]*/
+var subjects:[Subject] = []
+var curClass:Subject?
+
 class TimeTableViewController: UITableViewController {
 
+    //var subjects = Subject(name: "과목명", prof: "교수이름", place: "장소", time:[(day:0,startTime:0,endTime:0)])
     
-    let subjects:[Subject] = [Subject(name: "조직행동론",prof: "전재욱",place: "LP 504호",time:[(0,840,915),(2,840,915)]),
-                              Subject(name: "네트워크",prof: "민성기",place: "정보관 202호",time:[(1,540,615),(3,540,615)]),
-                              Subject(name: "교직실무",prof: "김재덕",place: "교욱관 203호",time:[(0,600,730),(4,600,730)])]
+    
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,17 +32,18 @@ class TimeTableViewController: UITableViewController {
         
         //여기에 추가
         
-        subjects[0].records += [Record(path: "/rec/file1.mov",date: "3월 2일"),
-                                Record(path: "/rec/file2.mov",date: "3월 4일"),
-                                Record(path: "/rec/file3.mov",date: "3월 9일")]
+       /*
+        subjects[0].records += [Record(path: "/rec/file1.mov",date: "3월 2일", length: "01:23:45"),
+                                Record(path: "/rec/file2.mov",date: "3월 4일", length: "01:23:45"),
+                                Record(path: "/rec/file3.mov",date: "3월 9일", length: "01:23:45")]
         
-        subjects[1].records += [Record(path: "/rec/file4.mov",date: "3월 3일"),
-                                Record(path: "/rec/file5.mov",date: "3월 5일"),
-                                Record(path: "/rec/file6.mov",date: "3월 10일")]
+        subjects[1].records += [Record(path: "/rec/file4.mov",date: "3월 3일", length: "01:23:45"),
+                                Record(path: "/rec/file5.mov",date: "3월 5일", length: "01:23:45"),
+                                Record(path: "/rec/file6.mov",date: "3월 10일", length: "01:23:45")]
         
-        subjects[2].records += [Record(path: "/rec/file7.mov",date: "3월 2일"),
-                                Record(path: "/rec/file8.mov",date: "3월 6일"),
-                                Record(path: "/rec/file9.mov",date: "3월 9일")]
+        subjects[2].records += [Record(path: "/rec/file7.mov",date: "3월 2일", length: "01:23:45"),
+                                Record(path: "/rec/file8.mov",date: "3월 6일", length: "01:23:45"),
+                                Record(path: "/rec/file9.mov",date: "3월 9일", length: "01:23:45")]
 
         //==========================================================================
         subjects[0].records[0].memos += [Memo(content: "서프라이즈 퀴즈 존재, 예습 복습 철저히 할 것",type: "퀴즈", time:880)]
@@ -76,63 +84,10 @@ class TimeTableViewController: UITableViewController {
         subjects[2].records[0].captures += [Capture(path: "/cap/pic1.png", time:121)]
         subjects[2].records[1].captures += [Capture(path: "/cap/pic2.png", time:245)]
         subjects[2].records[2].captures += [Capture(path: "/cap/pic3.png", time:1554)]
-
-        
-        
-        
-        @interface ViewController : UIViewController
-        @interface ViewController : UIViewController  <UITableViewDelegate, UITableViewDataSource>
-        
-        
-        
-            - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-        {
-            return 0;
-            }
-            
-            - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-        {
-            return nil;
-        }
-        
-        
-        @implementation ViewController
-        {
-            NSArray *array;
-        }
-        
-            - (void)viewDidLoad {
-                [super viewDidLoad];
-                // Do any additional setup after loading the view, typically from a nib.
-                // Initialize table data
-                array = [NSArray arrayWithObjects:@"교육학", @"경영학", @"게임", @"달리기", @"수학", nil];
-        }
-        
-        
-        (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger )section
-        {
-            return [array count];
-        }
-        
-        (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-        {
-            static NSString *identifier = @"Cell";
-            
-            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-            
-            if (cell == nil) {
-                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-            }
-            
-            cell.textLabel.text = [array objectAtIndex:indexPath.row];
-            return cell;
-        }
-        
-        
-        
-        
-        
-        
+<<<<<<< HEAD
+         */
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -147,25 +102,19 @@ class TimeTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return subjects.count
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "timeCell", for: indexPath)
-
-        // Configure the cell...
-
-        let num = indexPath.row
-        cell.textLabel?.text = subjects[num].name
-        cell.detailTextLabel?.text = subjects[num].place
         
-        return cell
-    }
+        
+        //오늘이 무슨 요일인지?
+=======
 
+>>>>>>> 류창훈2
+        
+
+        
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
+     // Return false if you do not want the specified item to be editable.
         return true
     }
     */
@@ -201,6 +150,7 @@ class TimeTableViewController: UITableViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
@@ -211,6 +161,5 @@ class TimeTableViewController: UITableViewController {
         
         destVC.selectedSubject = selected
     }
-    
-
 }
+ 
