@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class SubjectAddViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
    
     let timePicker = UIPickerView()
@@ -15,7 +16,6 @@ class SubjectAddViewController: UIViewController, UIPickerViewDelegate, UIPicker
     
     let pickerData = [["월","화","수","목","금"],["오전", "오후"],["1","2","3","4","5","6","7","8","9","10","11","12"],["0", "5", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55"],["오전", "오후"],["0","1","2","3","4","5","6","7","8","9","10","11","12"],["0", "5", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55"]]
 
-   
     
     @IBOutlet weak var nameText: UITextField!
     @IBOutlet weak var profText: UITextField!
@@ -23,15 +23,57 @@ class SubjectAddViewController: UIViewController, UIPickerViewDelegate, UIPicker
     @IBOutlet weak var timePickerText: UITextField!
     @IBOutlet weak var timePickerText2: UITextField!
     
-      @IBAction func SaveButton(_ sender: Any) {
+
+    var timeInfo:[(Int,Int,Int)] = []
+    @IBAction func SaveButton(_ sender: Any) {
+        var newSubject = Subject(name: "" , prof: "" , place: "" ,time: [])
+        if let name:String = nameText.text{
+            newSubject.name = name
+        }else{
+            let alertController = UIAlertController(title: "Error", message:
+                "과목명을 입력해주세요", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "취소", style: UIAlertActionStyle.default,handler: nil))
+            
+            self.present(alertController, animated: true, completion: nil)
+            return
+        }
+        if let prof:String = profText.text{
+            newSubject.prof = prof
+        }else{
+            let alertController = UIAlertController(title: "Error", message:
+                "교수명을 입력해주세요", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "취소", style: UIAlertActionStyle.default,handler: nil))
+            
+            self.present(alertController, animated: true, completion: nil)
+            return
+        }
+        if let place:String = placeText.text{
+            newSubject.place = place
+        }else{
+            let alertController = UIAlertController(title: "Error", message:
+                "장소를 입력해주세요", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "취소", style: UIAlertActionStyle.default,handler: nil))
+            
+            self.present(alertController, animated: true, completion: nil)
+            return
+        }
+        if timeInfo.count == 0 {
+            let alertController = UIAlertController(title: "Error", message:
+                "시간을 입력해주세요", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "취소", style: UIAlertActionStyle.default,handler: nil))
+            
+            self.present(alertController, animated: true, completion: nil)
+            return
+        }
+        newSubject.time = timeInfo
         
-        var newSubject = Subject(name: "" , prof: "" , place: "" ,time: [(day:0,startTime:0,endTime:0)])
-        
-        newSubject.name = nameText.text!
-        newSubject.prof = profText.text!
-        newSubject.place = placeText.text!
-        
-    }
+        subjects += [newSubject]
+        print(subjects.count)
+        saveData()
+
+
+
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,6 +119,33 @@ class SubjectAddViewController: UIViewController, UIPickerViewDelegate, UIPicker
         let endhour = pickerData[5][timePicker.selectedRow(inComponent: 5)]
         let endminute = pickerData[6][timePicker.selectedRow(inComponent: 6)]
         
+        var temp = (0,0,0)
+        switch day{
+        case "월":
+            temp.0 = 0
+            break
+        case "화":
+            temp.0 = 1
+            break
+        case "수":
+            temp.0 = 2
+            break
+        case "목":
+            temp.0 = 3
+            break
+        case "금":
+            temp.0 = 4
+            break
+        default:
+            return
+        }
+        var isPM = 0
+        if ampm == "PM"{
+            isPM=1
+        }
+        temp.1 = (Int(starthour)! + isPM * 12) * 60 + Int(startminute)!
+        temp.2 = (Int(endhour)! + isPM * 12) * 60 + Int(endminute)!
+        timeInfo += [temp]
        return timePickerText.text =  "\(day)요일  " + "\(ampm) " + " \(starthour)시  " + "\(startminute)분" + " ~ \(ampm2)  " + "\(endhour)시  " + "\(endminute)분"
             
         } else if pickerView == timePicker2 {
@@ -88,6 +157,33 @@ class SubjectAddViewController: UIViewController, UIPickerViewDelegate, UIPicker
         let endhour = pickerData[5][timePicker2.selectedRow(inComponent: 5)]
         let endminute = pickerData[6][timePicker2.selectedRow(inComponent: 6)]
         
+        var temp = (0,0,0)
+        switch day{
+        case "월":
+            temp.0 = 0
+            break
+        case "화":
+            temp.0 = 1
+            break
+        case "수":
+            temp.0 = 2
+            break
+        case "목":
+            temp.0 = 3
+            break
+        case "금":
+            temp.0 = 4
+            break
+        default:
+            return
+        }
+        var isPM = 0
+        if ampm == "PM"{
+            isPM=1
+        }
+        temp.1 = (Int(starthour)! + isPM * 12) * 60 + Int(startminute)!
+        temp.2 = (Int(endhour)! + isPM * 12) * 60 + Int(endminute)!
+        timeInfo += [temp]
        return timePickerText2.text =  "\(day)요일  " + "\(ampm) " + " \(starthour)시  " + "\(startminute)분" + " ~ \(ampm2)  " + "\(endhour)시  " + "\(endminute)분"
     }
         
