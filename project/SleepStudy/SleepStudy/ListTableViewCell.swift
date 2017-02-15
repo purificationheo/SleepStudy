@@ -30,6 +30,8 @@ class ListTableViewCell: UITableViewCell {
     
     @IBOutlet weak var memoLabel: UILabel!
     
+    @IBOutlet weak var captureImage: UIImageView!
+    
     @IBAction func touchButton(_ sender: UIButton) {
         if !isPaused{
             player?.pause()

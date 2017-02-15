@@ -13,6 +13,8 @@ class NoteDetailsViewController: UITableViewController, UITextViewDelegate {
     weak var backButtonDelegate: BackButtonDelegate?
     var noteToEdit: Note?
     
+    var back:UIViewController?
+    
     @IBOutlet weak var NewNoteTextView: UITextView!
     
     override func viewDidLoad() {
@@ -50,10 +52,11 @@ class NoteDetailsViewController: UITableViewController, UITextViewDelegate {
 
     
     @IBAction func backButtonPressed(_ sender: Any) {
-        
-        let memo:Memo = Memo(content: NewNoteTextView.text, type: "default", time: curTime)
-        curRecord!.memos += [memo]
-        backButtonDelegate?.backButtonPressedFrom(self)
+        if NewNoteTextView.text != ""{
+            let memo:Memo = Memo(content: NewNoteTextView.text, type: "default", time: curTime)
+            curRecord!.memos += [memo]
+        }
+        navigationBack(back!)
     }
     
 

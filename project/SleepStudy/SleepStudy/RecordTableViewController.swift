@@ -25,6 +25,9 @@ class RecordTableViewController: UITableViewController {
                 for j in 0..<subject.records[i].memos.count{
                     cellOrder.append((1,i,j))
                 }
+                for j in 0..<subject.records[i].captures.count{
+                    cellOrder.append((2,i,j))
+                }
             }
         }
         print(cellOrder.count)
@@ -85,6 +88,12 @@ class RecordTableViewController: UITableViewController {
             cell2.memoLabel.text = selectedSubject?.records[output.1].memos[output.2].content
             
             return cell2
+            
+        case 2:
+            let cell3 = tableView.dequeueReusableCell(withIdentifier: "pictureList",for: indexPath) as! ListTableViewCell
+            cell3.captureImage.image=UIImage(contentsOfFile: (selectedSubject?.records[output.1].captures[output.2].path)!)
+            
+            return cell3
         
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "memoList", for: indexPath)
@@ -124,6 +133,9 @@ class RecordTableViewController: UITableViewController {
             case 1:
                 selectedSubject?.records[output.1].memos.remove(at: output.2)
                 break
+            case 2:
+                selectedSubject?.records[output.1].captures.remove(at:output.2)
+                break;
             default : break
             }
             cellOrder = []

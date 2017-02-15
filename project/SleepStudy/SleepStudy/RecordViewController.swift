@@ -198,4 +198,11 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate  {
      }
      */
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destVC = segue.destination as! NoteDetailsViewController
+        destVC.back = self
+        
+    }
+
+    
 }
