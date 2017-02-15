@@ -84,6 +84,7 @@ class TimeTableViewController: UITableViewController {
         subjects[2].records[0].captures += [Capture(path: "/cap/pic1.png", time:121)]
         subjects[2].records[1].captures += [Capture(path: "/cap/pic2.png", time:245)]
         subjects[2].records[2].captures += [Capture(path: "/cap/pic3.png", time:1554)]
+<<<<<<< HEAD
          */
     }
     
@@ -104,33 +105,16 @@ class TimeTableViewController: UITableViewController {
         
         
         //오늘이 무슨 요일인지?
-        
-        
-        //월 : 0 화 : 1 수 : 2 목 : 3 금 : 4
-        //subjects에 들어있는 항목 검사 -> 오늘 듣는 수업인지? 조건문
-        
-        
-        //몇 개의 row를 사용할건지
-        //월요일 -> 2를 return
-        return subjects.count
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "timeCell", for: indexPath)
-        // Configure the cell...
-        
-        //위에서 선택한 과목을 각각 출력하는 부분
-        let num = indexPath.row
-        cell.textLabel?.text = subjects[num].name
-        cell.detailTextLabel?.text = subjects[num].place
-        
-        return cell
-    }
+=======
 
+>>>>>>> 류창훈2
+        
+
+        
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
+     // Return false if you do not want the specified item to be editable.
         return true
     }
     */
