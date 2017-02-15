@@ -19,11 +19,7 @@ func saveData(){
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    func getDocumentsDirectory() -> URL {
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        let documentsDirectory = paths[0]
-        return documentsDirectory
-    }
+
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
