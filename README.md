@@ -11,8 +11,8 @@
 
 
 ## More 
-Korea University, 2017 Winter IT Leadership Program.
-2016.12.29 ~ 2017.02.15(124h)
+- Korea University, 2017 Winter IT Leadership Program.
+- 2016.12.29 ~ 2017.02.15(124h)
 
 
 
